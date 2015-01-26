@@ -57,9 +57,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 400006}
   - 54: {fileID: 5400000}
-  - 114: {fileID: 11400008}
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 936.503052, y: 245.751587, z: 802.360352}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90c70e79e27e84ed4a56f30b8ea305cd, type: 3}
   m_Name: 
@@ -267,7 +267,7 @@ MonoBehaviour:
   PrefabBullet: {fileID: 100000, guid: 2226e2a1249bf4a7bad584660395ce0e, type: 2}
   SpawnPoint1: {fileID: 100002}
   SpawnPoint2: {fileID: 100000}
---- !u!114 &11400008
+--- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -275,12 +275,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 100006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12e958bcbd0864d08bc054f5151f94d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e45ef016e93a4319a52caffe9402093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 1
-  _rotatePower: 1
-  _model: {fileID: 100004}
+  RotationPowerRoll: 2
+  RotationPowerYaw: 2
+  RotationPowerPitch: 2
+  RotationBoundRoll: 25
+  RotationBoundYaw: 25
+  RotationBoundPitch: 25
+  SpeedFactor: 1
+  RollDampingFactor: 1
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
