@@ -263,7 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90c70e79e27e84ed4a56f30b8ea305cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrefabBullet: {fileID: 100000, guid: 2226e2a1249bf4a7bad584660395ce0e, type: 2}
+  BulletContainer: {fileID: 0}
+  PrefabBullet: {fileID: 100004, guid: b3bf811bb2b0948cf907962eb4c4aa93, type: 2}
   SpawnPoint1: {fileID: 100002}
   SpawnPoint2: {fileID: 100000}
 --- !u!114 &11400002
