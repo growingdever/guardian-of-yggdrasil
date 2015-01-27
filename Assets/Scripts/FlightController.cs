@@ -7,8 +7,12 @@ public class FlightController : MonoBehaviour
 	public float RotationPowerYaw = 0.3f;
 	public float RotationPowerPitch = 0.3f;
 
-    public float SpeedFactor = 1.0f;
+	public float UnitPerMeter = 10;
+    public float KilometerPerHour = 180.0f;
 	public float RollDampingFactor = 1.0f;
+
+	const int MeterPerKilometer = 1000;
+	const int SecondsPerHour = 3600;
 
 
     void Start() {
@@ -29,8 +33,10 @@ public class FlightController : MonoBehaviour
 		this.transform.Rotate(0, 0, rollDamping * Time.deltaTime * RollDampingFactor);
 
 
-		if (Input.GetKey (KeyCode.Space)) {
-			this.transform.position += this.transform.forward * SpeedFactor;
-		}
+		float meterPerSecond = KilometerPerHour * MeterPerKilometer / SecondsPerHour;
+		float unitPerSecond = meterPerSecond / UnitPerMeter;
+		float fps = 1.0f / Time.deltaTime;
+		float speedFactor = unitPerSecond / fps;
+		this.transform.position += this.transform.forward * speedFactor;
 	}
 }

@@ -57,9 +57,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 400006}
   - 54: {fileID: 5400000}
-  - 114: {fileID: 11400010}
-  - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -129,7 +128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 973.759888, y: 348.100464, z: 431.369812}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -167,7 +166,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: .300000012
-  far clip plane: 1000
+  far clip plane: 3000
   field of view: 60
   orthographic: 0
   orthographic size: 100
@@ -259,7 +258,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90c70e79e27e84ed4a56f30b8ea305cd, type: 3}
   m_Name: 
@@ -281,29 +280,9 @@ MonoBehaviour:
   RotationPowerRoll: 2
   RotationPowerYaw: 2
   RotationPowerPitch: 2
-  RotationBoundRoll: 25
-  RotationBoundYaw: 25
-  RotationBoundPitch: 25
-  SpeedFactor: 1
+  UnitPerMeter: 1
+  KilometerPerHour: 180
   RollDampingFactor: 1
---- !u!114 &11400010
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7da3f902ab3b54b19969de506ea806a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axes: 0
-  sensitivityX: 15
-  sensitivityY: 15
-  minimumX: -360
-  maximumX: 360
-  minimumY: -60
-  maximumY: 60
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
