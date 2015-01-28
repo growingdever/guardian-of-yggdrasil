@@ -827,7 +827,7 @@ MonoBehaviour:
   CurrentLevel: 0
   SpawnPoint: {fileID: 1336070760}
   TargetPoint: {fileID: 273503413}
-  EnemyMoveSpeed: .300000012
+  EnemyMoveSpeed: 120
 --- !u!4 &923270431
 Transform:
   m_ObjectHideFlags: 0

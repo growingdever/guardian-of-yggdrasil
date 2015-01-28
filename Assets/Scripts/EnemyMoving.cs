@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyMoving : MonoBehaviour {
 
 	public Transform TargetPoint;
-	public float MoveSpeed;
+	public float KilometerPerHour = 120.0f;
 
 	float _aliveTime;
 
@@ -18,12 +18,13 @@ public class EnemyMoving : MonoBehaviour {
 		_aliveTime += Time.deltaTime;
 
 		Vector3 dir = TargetPoint.transform.position - this.transform.position;
-		dir.Normalize();
+		Vector3 norm = dir.normalized;
 
-		Vector3 movement = dir * MoveSpeed;
+		float speedFactor = UnitCalculator.ToUnitFactorFromVelocity(KilometerPerHour);
+
+		Vector3 movement = norm * speedFactor;
 		movement.y += Mathf.Abs( Mathf.Sin(_aliveTime) ) * 0.2f;
 
 		this.transform.position += movement;
-//		this.transform.forward = (TargetPoint.transform.position - this.transform.position).normalized;
 	}
 }

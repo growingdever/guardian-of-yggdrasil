@@ -58,7 +58,7 @@ public class EnemyHole : MonoBehaviour {
 
 		EnemyMoving comp = go.GetComponent<EnemyMoving>();
 		comp.TargetPoint = TargetPoint;
-		comp.MoveSpeed = EnemyMoveSpeed;
+		comp.KilometerPerHour = EnemyMoveSpeed;
 		comp.enabled = true;
 
 		_markCreator.CreateMark (go);
