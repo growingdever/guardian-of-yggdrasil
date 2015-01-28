@@ -7,6 +7,15 @@ public class ShootBullet : MonoBehaviour {
 	public GameObject PrefabBullet;
 	public Transform SpawnPoint;
 
+	public float MissileSpeed = 500.0f;
+	public float ForwardOffsetFactor = 1000.0f;
+
+	Camera _playerCamera;
+
+	
+	void Awake() {
+		_playerCamera = this.GetComponentInChildren<Camera>();
+	}
 
 	void Start () {
 
@@ -23,11 +32,12 @@ public class ShootBullet : MonoBehaviour {
 		clone.transform.parent = BulletContainer.transform;
 
 		EffectSettings setting = clone.GetComponent<EffectSettings>();
-		setting.MoveSpeed = 100.0f;
+		setting.MoveSpeed = MissileSpeed;
 		setting.MoveDistance = 1000.0f;
+		setting.IsHomingMove = true;
 
 		var go = new GameObject();
-		go.transform.position = spawnPoint.forward + spawnPoint.position;
+		go.transform.position = spawnPoint.position + _playerCamera.transform.forward * ForwardOffsetFactor;
 		go.transform.parent = setting.gameObject.transform;
 		setting.Target = go;
 

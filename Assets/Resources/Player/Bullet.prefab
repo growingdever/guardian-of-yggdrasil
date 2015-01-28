@@ -1642,7 +1642,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 3
     gravityModifier: 0
-    inheritVelocity: -.100000001
+    inheritVelocity: -.00999999978
     maxNumParticles: 1000
   ShapeModule:
     serializedVersion: 2
@@ -1661,7 +1661,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 1
     rate:
-      scalar: 5
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
