@@ -56,12 +56,13 @@ public class EnemyHole : MonoBehaviour {
 
 		yield return new WaitForSeconds(3.5f);
 
+		_markCreator.CreateMark (go);
+		go.GetComponent<Enemy>().OnDeadCallbacks += _markCreator.RemoveMark;
+
 		EnemyMoving comp = go.GetComponent<EnemyMoving>();
 		comp.TargetPoint = TargetPoint;
 		comp.KilometerPerHour = EnemyMoveSpeed;
 		comp.enabled = true;
-
-		_markCreator.CreateMark (go);
 	}
 
 }

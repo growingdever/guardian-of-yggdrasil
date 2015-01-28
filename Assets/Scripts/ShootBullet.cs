@@ -53,10 +53,13 @@ public class ShootBullet : MonoBehaviour {
 	}
 
 	void OnMissileCollisionEnter(object sender, CollisionInfo e) {
-		EnemyMoving comp = e.Hit.collider.GetComponent<EnemyMoving>();
-		if( comp != null ) {
+		print (sender + "\n" + e.Hit);
+		Enemy enemy = e.Hit.collider.GetComponent<Enemy>();
+		if( enemy != null ) {
 			// this collider is enemy!
-			GameObject enemy = comp.gameObject;
+			GameObject goEnemy = enemy.gameObject;
+			enemy.HP -= 10;
+			print (enemy);
 		}
 	}
 
