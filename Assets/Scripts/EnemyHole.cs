@@ -11,7 +11,13 @@ public class EnemyHole : MonoBehaviour {
 	public Transform TargetPoint;
 	public float EnemyMoveSpeed;
 
-	// Use this for initialization
+	EnemyMarkCreator _markCreator;
+
+
+	void Awake() {
+		_markCreator = this.GetComponent<EnemyMarkCreator> ();
+	}
+	
 	void Start () {
 		StartCoroutine(CreateEnemy());
 	}
@@ -54,6 +60,8 @@ public class EnemyHole : MonoBehaviour {
 		comp.TargetPoint = TargetPoint;
 		comp.MoveSpeed = EnemyMoveSpeed;
 		comp.enabled = true;
+
+		_markCreator.CreateMark (go);
 	}
 
 }
