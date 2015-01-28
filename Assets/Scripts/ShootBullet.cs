@@ -5,9 +5,8 @@ public class ShootBullet : MonoBehaviour {
 
 	public GameObject BulletContainer;
 	public GameObject PrefabBullet;
-	public GameObject SpawnPoint1;
-	public GameObject SpawnPoint2;
-	
+	public Transform SpawnPoint;
+
 
 	void Start () {
 
@@ -15,8 +14,7 @@ public class ShootBullet : MonoBehaviour {
 
 	void Update () {
 		if (Input.GetButtonDown("Fire1")) {
-			SpawnBullet(SpawnPoint1.transform);
-			SpawnBullet(SpawnPoint2.transform);
+			SpawnBullet(SpawnPoint);
 		}
 	}
 
