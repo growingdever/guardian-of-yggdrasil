@@ -924,6 +924,7 @@ MonoBehaviour:
   SpawnPoint: {fileID: 1640128998}
   MissileSpeed: 500
   ForwardOffsetFactor: 1000
+  ColliderRadius: 5
 --- !u!54 &1030406660
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1100,6 +1101,10 @@ Prefab:
       propertyPath: BulletContainer
       value: 
       objectReference: {fileID: 1064494910}
+    - target: {fileID: 11400000, guid: b17756feb34fe4821930986eed14fbfb, type: 2}
+      propertyPath: ColliderRadius
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b17756feb34fe4821930986eed14fbfb, type: 2}
   m_RootGameObject: {fileID: 1030406655}

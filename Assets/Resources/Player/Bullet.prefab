@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc1db87478e94a42875321f75d0c7d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColliderRadius: .100000001
+  ColliderRadius: 5
   EffectRadius: 0
   Target: {fileID: 0}
   MoveSpeed: 4

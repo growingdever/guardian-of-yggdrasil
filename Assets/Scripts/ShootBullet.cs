@@ -9,6 +9,7 @@ public class ShootBullet : MonoBehaviour {
 
 	public float MissileSpeed = 500.0f;
 	public float ForwardOffsetFactor = 1000.0f;
+	public float ColliderRadius = 5.0f;
 
 	Camera _playerCamera;
 
@@ -35,6 +36,8 @@ public class ShootBullet : MonoBehaviour {
 		setting.MoveSpeed = MissileSpeed;
 		setting.MoveDistance = 1000.0f;
 		setting.IsHomingMove = true;
+		setting.ColliderRadius = ColliderRadius;
+		setting.CollisionEnter += this.OnMissileCollisionEnter;
 
 		var go = new GameObject();
 		go.transform.position = spawnPoint.position + _playerCamera.transform.forward * ForwardOffsetFactor;
@@ -48,4 +51,13 @@ public class ShootBullet : MonoBehaviour {
 		yield return new WaitForSeconds( 10 );
 		Destroy( obj );
 	}
+
+	void OnMissileCollisionEnter(object sender, CollisionInfo e) {
+		EnemyMoving comp = e.Hit.collider.GetComponent<EnemyMoving>();
+		if( comp != null ) {
+			// this collider is enemy!
+			GameObject enemy = comp.gameObject;
+		}
+	}
+
 }
