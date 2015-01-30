@@ -10,6 +10,8 @@ public class EventEnemyLifeCycle : EventArgs
 
 public class Enemy : MonoBehaviour {
 
+	public GameObject PrefabExplosionEffect;
+
 	int _hp;
 	public int HP {
 		get {
@@ -29,6 +31,8 @@ public class Enemy : MonoBehaviour {
 	protected void OnDead() {
 		var e = new EventEnemyLifeCycle {gameObject = this.gameObject};
 		OnDeadCallbacks(this, e);
+
+		Instantiate(PrefabExplosionEffect, this.transform.position, Quaternion.identity);
 
 		this.transform.parent = null;
 		Destroy(this.gameObject);
