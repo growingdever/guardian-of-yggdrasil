@@ -43,7 +43,7 @@ MonoBehaviour:
   mSprites:
   - name: aim
     x: 0
-    y: 64
+    y: 74
     width: 64
     height: 64
     borderLeft: 0
@@ -55,8 +55,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: target
-    x: 65
-    y: 70
+    x: 0
+    y: 15
     width: 59
     height: 58
     borderLeft: 0
@@ -67,6 +67,32 @@ MonoBehaviour:
     paddingRight: 2
     paddingTop: 3
     paddingBottom: 3
+  - name: weapon_default
+    x: 0
+    y: 139
+    width: 117
+    height: 117
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 5
+    paddingRight: 6
+    paddingTop: 5
+    paddingBottom: 6
+  - name: weapon_missile
+    x: 118
+    y: 139
+    width: 117
+    height: 117
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 5
+    paddingTop: 5
+    paddingBottom: 6
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0
