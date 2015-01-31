@@ -871,8 +871,10 @@ MonoBehaviour:
   PrefabMissile: {fileID: 100004, guid: b3bf811bb2b0948cf907962eb4c4aa93, type: 2}
   BulletSpeed: 3
   BulletDamage: 3
+  BulletDelay: .100000001
   MissileSpeed: 500
   MissileDamage: 10
+  MissileDelay: 3
   ForwardOffsetFactor: 1000
   ColliderRadius: 5
 --- !u!114 &11400002

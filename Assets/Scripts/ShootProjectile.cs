@@ -11,8 +11,10 @@ public class ShootProjectile : MonoBehaviour {
 	// below two speed is not unified....
 	public float BulletSpeed = 3.0f;
 	public int BulletDamage;
+	public float BulletDelay;
 	public float MissileSpeed = 500.0f;
 	public int MissileDamage;
+	public int MissileDelay;
 	public float ForwardOffsetFactor = 1000.0f;
 	public float ColliderRadius = 5.0f;
 
@@ -27,6 +29,8 @@ public class ShootProjectile : MonoBehaviour {
 	}
 
 	Camera _playerCamera;
+	float _bulletDelay;
+	float _missileDelay;
 
 	
 	void Awake() {
@@ -38,10 +42,14 @@ public class ShootProjectile : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetButtonDown("Fire1")) {
-			if( CurrentWeapon == WeaponType.Bullet ) {
+		_bulletDelay += Time.deltaTime;
+		_missileDelay += Time.deltaTime;
+		if (Input.GetButton("Fire1")) {
+			if( CurrentWeapon == WeaponType.Bullet && _bulletDelay > BulletDelay ) {
+				_bulletDelay = 0;
 				SpawnBullet(SpawnPoint);
-			} else if( CurrentWeapon == WeaponType.Missile ) {
+			} else if( CurrentWeapon == WeaponType.Missile && _missileDelay > MissileDelay ) {
+				_missileDelay = 0;
 				SpawnMissile(SpawnPoint);
 			}
 		}
