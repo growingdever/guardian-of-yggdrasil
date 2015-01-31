@@ -74,6 +74,73 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
+--- !u!1 &52059650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 52059651}
+  - 114: {fileID: 52059652}
+  m_Layer: 5
+  m_Name: WeaponType
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &52059651
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 52059650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 475.50116, y: -244.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 674464485}
+  - {fileID: 2011475865}
+  m_Father: {fileID: 1582696912}
+  m_RootOrder: 1
+--- !u!114 &52059652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 52059650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858a20c1b21a3f94bb5b2d3b901c9aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 880706129}
+    relative: 1
+    absolute: -170
+  rightAnchor:
+    target: {fileID: 880706129}
+    relative: 1
+    absolute: -70
+  bottomAnchor:
+    target: {fileID: 880706129}
+    relative: 0
+    absolute: 7
+  topAnchor:
+    target: {fileID: 880706129}
+    relative: 0
+    absolute: 107
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 100
+  mHeight: 100
+  mDepth: 0
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1
 --- !u!1 &82751627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,7 +1343,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 327595046}
-  m_Layer: 0
+  - 114: {fileID: 327595047}
+  m_Layer: 5
   m_Name: Speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,13 +1358,50 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 327595045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 335.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 251.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1068722336}
   - {fileID: 811328796}
   m_Father: {fileID: 1582696912}
   m_RootOrder: 0
+--- !u!114 &327595047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 327595045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858a20c1b21a3f94bb5b2d3b901c9aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 880706129}
+    relative: .5
+    absolute: -50
+  rightAnchor:
+    target: {fileID: 880706129}
+    relative: .5
+    absolute: 50
+  bottomAnchor:
+    target: {fileID: 880706129}
+    relative: 1
+    absolute: -100
+  topAnchor:
+    target: {fileID: 880706129}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 100
+  mHeight: 100
+  mDepth: 0
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1
 --- !u!1 &371517831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,11 +1729,93 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 10000
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e5b70eb1a52c5e343a57709b1ec98737, type: 2}
+      propertyPath: m_Name
+      value: Ocean
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5b70eb1a52c5e343a57709b1ec98737, type: 2}
   m_RootGameObject: {fileID: 1529102271}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &674464484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 674464485}
+  - 114: {fileID: 674464486}
+  m_Layer: 5
+  m_Name: SpriteWeaponBullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &674464485
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674464484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 52059651}
+  m_RootOrder: 0
+--- !u!114 &674464486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674464484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 64
+  mHeight: 64
+  mDepth: 0
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+  mAtlas: {fileID: 11400000, guid: 0d2bb86cd14f84c1d833593e029908a9, type: 2}
+  mSpriteName: weapon_default
+  mFillCenter: 1
 --- !u!1 &811328795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,7 +1839,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 811328795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 101, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 327595046}
@@ -1686,7 +1873,7 @@ MonoBehaviour:
     absolute: 0
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: .301960796}
-  mPivot: 5
+  mPivot: 4
   mWidth: 150
   mHeight: 53
   mDepth: 0
@@ -1848,7 +2035,7 @@ Transform:
   m_GameObject: {fileID: 880706125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -100, y: 0, z: 0}
-  m_LocalScale: {x: .00625000009, y: .00625000009, z: .00625000009}
+  m_LocalScale: {x: .00331674959, y: .00331674959, z: .00331674959}
   m_Children:
   - {fileID: 606886466}
   m_Father: {fileID: 0}
@@ -2324,6 +2511,8 @@ MonoBehaviour:
   SpawnPoint: {fileID: 1640128998}
   PrefabBullet: {fileID: 100000, guid: 37568f4e6cc6e483287623ef08ab0458, type: 2}
   PrefabMissile: {fileID: 100004, guid: b3bf811bb2b0948cf907962eb4c4aa93, type: 2}
+  SpriteWeaponBullet: {fileID: 674464486}
+  SpriteWeaponMissile: {fileID: 2011475866}
   BulletSpeed: 6
   BulletDamage: 3
   BulletDelay: .100000001
@@ -3434,7 +3623,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1068722335}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 76, y: 0, z: 0}
+  m_LocalPosition: {x: 53, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 327595046}
@@ -5145,7 +5334,7 @@ GameObject:
   - 64: {fileID: 1529102273}
   - 23: {fileID: 1529102272}
   m_Layer: 0
-  m_Name: Water1LayerPM
+  m_Name: Ocean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5290,6 +5479,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 327595046}
+  - {fileID: 52059651}
   m_Father: {fileID: 606886466}
   m_RootOrder: 1
 --- !u!1 &1640128997
@@ -6451,6 +6641,14 @@ Prefab:
       propertyPath: ProjectileContainer
       value: 
       objectReference: {fileID: 1064494911}
+    - target: {fileID: 11400000, guid: b17756feb34fe4821930986eed14fbfb, type: 2}
+      propertyPath: SpriteWeaponBullet
+      value: 
+      objectReference: {fileID: 674464486}
+    - target: {fileID: 11400000, guid: b17756feb34fe4821930986eed14fbfb, type: 2}
+      propertyPath: SpriteWeaponMissile
+      value: 
+      objectReference: {fileID: 2011475866}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b17756feb34fe4821930986eed14fbfb, type: 2}
   m_RootGameObject: {fileID: 1030406655}
@@ -7666,6 +7864,84 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1721763124}
   m_GameObject: {fileID: 1986252781}
   m_Mesh: {fileID: 4300004, guid: 00b5aceb1d39e324780e20fd82e414f8, type: 3}
+--- !u!1 &2011475864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2011475865}
+  - 114: {fileID: 2011475866}
+  m_Layer: 5
+  m_Name: SpriteWeaponMissile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2011475865
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2011475864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 64, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 52059651}
+  m_RootOrder: 1
+--- !u!114 &2011475866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2011475864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 64
+  mHeight: 64
+  mDepth: 1
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+  mAtlas: {fileID: 11400000, guid: 0d2bb86cd14f84c1d833593e029908a9, type: 2}
+  mSpriteName: weapon_missile
+  mFillCenter: 1
 --- !u!1 &2070852867
 GameObject:
   m_ObjectHideFlags: 0

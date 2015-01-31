@@ -8,6 +8,10 @@ public class ShootProjectile : MonoBehaviour {
 	public GameObject PrefabBullet;
 	public GameObject PrefabMissile;
 
+	// UI
+	public UISprite SpriteWeaponBullet;
+	public UISprite SpriteWeaponMissile;
+
 	// below two speed is not unified....
 	public float BulletSpeed = 3.0f;
 	public int BulletDamage;
@@ -38,7 +42,7 @@ public class ShootProjectile : MonoBehaviour {
 	}
 
 	void Start () {
-
+		UpdateWeaponUIByState();
 	}
 
 	void Update () {
@@ -56,9 +60,25 @@ public class ShootProjectile : MonoBehaviour {
 
 		if (Input.GetKeyDown("1")) {
 			CurrentWeapon = WeaponType.Bullet;
+			UpdateWeaponUIByState();
 		}
 		if (Input.GetKeyDown("2")) {
 			CurrentWeapon = WeaponType.Missile;
+			UpdateWeaponUIByState();
+		}
+	}
+
+	void UpdateWeaponUIByState() {
+		Color colorInactive = new Color(0.4f, 0.4f, 0.4f);
+		Color colorActive = new Color(1.0f, 1.0f, 1.0f);
+
+		if( CurrentWeapon == WeaponType.Bullet ) {
+			SpriteWeaponBullet.color = colorActive;
+			SpriteWeaponMissile.color = colorInactive;
+		}
+		else if( CurrentWeapon == WeaponType.Missile ) {
+			SpriteWeaponBullet.color = colorInactive;
+			SpriteWeaponMissile.color = colorActive;
 		}
 	}
 
