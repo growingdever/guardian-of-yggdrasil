@@ -44,10 +44,10 @@ public class ShootBullet : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKeyDown(KeyCode.Keypad1)) {
+		if (Input.GetKeyDown("1")) {
 			CurrentWeapon = WeaponType.Bullet;
 		}
-		if (Input.GetKeyDown(KeyCode.Keypad2)) {
+		if (Input.GetKeyDown("2")) {
 			CurrentWeapon = WeaponType.Missile;
 		}
 	}
@@ -65,7 +65,7 @@ public class ShootBullet : MonoBehaviour {
 
 
 	void SpawnMissile(Transform spawnPoint) {
-		GameObject clone = Instantiate (PrefabBullet, spawnPoint.position, spawnPoint.rotation) as GameObject;
+		GameObject clone = Instantiate (PrefabMissile, spawnPoint.position, spawnPoint.rotation) as GameObject;
 		clone.transform.parent = BulletContainer.transform;
 
 		EffectSettings setting = clone.GetComponent<EffectSettings>();
