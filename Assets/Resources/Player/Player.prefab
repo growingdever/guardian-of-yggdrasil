@@ -869,8 +869,10 @@ MonoBehaviour:
   SpawnPoint: {fileID: 400002}
   PrefabBullet: {fileID: 100000, guid: 37568f4e6cc6e483287623ef08ab0458, type: 2}
   PrefabMissile: {fileID: 100004, guid: b3bf811bb2b0948cf907962eb4c4aa93, type: 2}
-  BulletSpeed: 1000
+  BulletSpeed: 3
+  BulletDamage: 3
   MissileSpeed: 500
+  MissileDamage: 10
   ForwardOffsetFactor: 1000
   ColliderRadius: 5
 --- !u!114 &11400002

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ShootBullet : MonoBehaviour {
+public class ShootProjectile : MonoBehaviour {
 
 	public GameObject BulletContainer;
 	public Transform SpawnPoint;
@@ -10,7 +10,9 @@ public class ShootBullet : MonoBehaviour {
 
 	// below two speed is not unified....
 	public float BulletSpeed = 3.0f;
+	public int BulletDamage;
 	public float MissileSpeed = 500.0f;
+	public int MissileDamage;
 	public float ForwardOffsetFactor = 1000.0f;
 	public float ColliderRadius = 5.0f;
 
@@ -57,10 +59,12 @@ public class ShootBullet : MonoBehaviour {
 		clone.transform.parent = BulletContainer.transform;
 		clone.transform.Rotate(90, 0, 0);
 
-		BulletMoving comp = clone.GetComponent<BulletMoving>();
+		BulletMachineGun comp = clone.GetComponent<BulletMachineGun>();
+		comp.Damage = BulletDamage;
 		comp.Speed = BulletSpeed;
+		comp.OnCollidedCallbacks += OnBulletCollisionEnter;
 
-		StartCoroutine (DestroyBullet (clone));
+		StartCoroutine (DestroyProjectile (clone));
 	}
 
 
@@ -80,12 +84,24 @@ public class ShootBullet : MonoBehaviour {
 		go.transform.parent = setting.gameObject.transform;
 		setting.Target = go;
 
-		StartCoroutine (DestroyBullet (clone));
+		StartCoroutine (DestroyProjectile (clone));
 	}
 	
-	IEnumerator DestroyBullet( GameObject obj ) {
+	IEnumerator DestroyProjectile( GameObject obj ) {
 		yield return new WaitForSeconds( 10 );
-		Destroy( obj );
+		if (obj != null) {
+			Destroy( obj );
+		}
+	}
+
+	void OnBulletCollisionEnter(object sender, EventArgsGameObject e) {
+		GameObject collided = e.gameObject;
+		Enemy enemy = collided.GetComponent<Enemy> ();
+		if (enemy != null) {
+			Projectile projectile = sender as Projectile;
+			enemy.HP -= projectile.Damage;
+			Destroy( collided );
+		}
 	}
 
 	void OnMissileCollisionEnter(object sender, CollisionInfo e) {
@@ -93,7 +109,7 @@ public class ShootBullet : MonoBehaviour {
 		if( enemy != null ) {
 			// this collider is enemy!
 			GameObject goEnemy = enemy.gameObject;
-			enemy.HP -= 10;
+			enemy.HP -= MissileDamage;
 		}
 	}
 
