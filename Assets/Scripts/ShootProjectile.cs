@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ShootProjectile : MonoBehaviour {
 
-	public GameObject BulletContainer;
+	public Transform ProjectileContainer;
 	public Transform SpawnPoint;
 	public GameObject PrefabBullet;
 	public GameObject PrefabMissile;
@@ -64,8 +64,9 @@ public class ShootProjectile : MonoBehaviour {
 
 	void SpawnBullet(Transform spawnPoint) {
 		GameObject clone = Instantiate (PrefabBullet, spawnPoint.position, spawnPoint.rotation) as GameObject;
-		clone.transform.parent = BulletContainer.transform;
-		clone.transform.Rotate(90, 0, 0);
+		clone.transform.parent = ProjectileContainer;
+		clone.transform.LookAt (_playerCamera.transform.position + _playerCamera.transform.forward * 10000);
+		clone.transform.Rotate (90, 0, 0);
 
 		BulletMachineGun comp = clone.GetComponent<BulletMachineGun>();
 		comp.Damage = BulletDamage;
@@ -78,7 +79,8 @@ public class ShootProjectile : MonoBehaviour {
 
 	void SpawnMissile(Transform spawnPoint) {
 		GameObject clone = Instantiate (PrefabMissile, spawnPoint.position, spawnPoint.rotation) as GameObject;
-		clone.transform.parent = BulletContainer.transform;
+		clone.transform.parent = ProjectileContainer;
+		clone.transform.LookAt (_playerCamera.transform.position + _playerCamera.transform.forward * 10000);
 
 		EffectSettings setting = clone.GetComponent<EffectSettings>();
 		setting.MoveSpeed = MissileSpeed;
@@ -116,7 +118,6 @@ public class ShootProjectile : MonoBehaviour {
 		Enemy enemy = e.Hit.collider.GetComponent<Enemy>();
 		if( enemy != null ) {
 			// this collider is enemy!
-			GameObject goEnemy = enemy.gameObject;
 			enemy.HP -= MissileDamage;
 		}
 	}

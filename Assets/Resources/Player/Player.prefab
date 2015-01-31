@@ -323,7 +323,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: -2.87535405, y: -.0250854492, z: 2.29019833}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
@@ -865,11 +865,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90c70e79e27e84ed4a56f30b8ea305cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletContainer: {fileID: 0}
+  ProjectileContainer: {fileID: 0}
   SpawnPoint: {fileID: 400002}
   PrefabBullet: {fileID: 100000, guid: 37568f4e6cc6e483287623ef08ab0458, type: 2}
   PrefabMissile: {fileID: 100004, guid: b3bf811bb2b0948cf907962eb4c4aa93, type: 2}
-  BulletSpeed: 3
+  BulletSpeed: 6
   BulletDamage: 3
   BulletDelay: .100000001
   MissileSpeed: 500
