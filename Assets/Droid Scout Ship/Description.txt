@@ -1,0 +1,13 @@
+Droid Scout Ship
+
+Unity Ready Model of a SciFi Ship.
+
+Use it as player, enemy, boss or as a decoration 
+in the background of your scene.
+
+1024x1024px Texture (Diffuse & Normal)
+
+UV-Mapped Photoshop File included for easy texture customising.
+
+
+1810 Polygons only
