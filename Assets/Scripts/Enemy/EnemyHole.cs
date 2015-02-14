@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyHole : MonoBehaviour {
 
-	public Transform[] LocationPoints;
+	public float Range;
 	public GameObject EnemyContainer;
 	public GameObject[] PrefabEnemies;
 	public int CurrentLevel;
@@ -30,9 +30,13 @@ public class EnemyHole : MonoBehaviour {
 
 			yield return new WaitForSeconds( 5.0f );
 
-			// change location
-			this.transform.parent = LocationPoints[ Random.Range(0, LocationPoints.Length) ];
-			this.transform.localPosition = new Vector3();
+			float radian = Random.Range(0.0f, Mathf.PI * 2);
+			Vector3 new_pos = TargetPoint.position;
+			new_pos.x = new_pos.x + Range * Mathf.Cos(radian);
+			new_pos.y = this.transform.position.y;
+			new_pos.z = new_pos.z + Range * Mathf.Sin(radian);
+
+			this.transform.position = new_pos;
 			this.transform.rotation = Quaternion.identity;
 
 			Vector3 dest = TargetPoint.position;
