@@ -43,7 +43,7 @@ MonoBehaviour:
   mSprites:
   - name: aim
     x: 0
-    y: 74
+    y: 121
     width: 64
     height: 64
     borderLeft: 0
@@ -54,9 +54,113 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: bar-back
+    x: 0
+    y: 318
+    width: 256
+    height: 32
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bar-back2
+    x: 0
+    y: 351
+    width: 256
+    height: 32
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bar-back3
+    x: 0
+    y: 186
+    width: 256
+    height: 32
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bar-blue
+    x: 0
+    y: 219
+    width: 256
+    height: 32
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bar-red
+    x: 0
+    y: 285
+    width: 256
+    height: 32
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bar-white
+    x: 0
+    y: 252
+    width: 256
+    height: 32
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hp-icon-player
+    x: 0
+    y: 384
+    width: 128
+    height: 128
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hp-icon-tree
+    x: 129
+    y: 384
+    width: 128
+    height: 128
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: target
     x: 0
-    y: 15
+    y: 62
     width: 59
     height: 58
     borderLeft: 0
@@ -68,8 +172,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 3
   - name: weapon_default
-    x: 0
-    y: 139
+    x: 258
+    y: 395
     width: 117
     height: 117
     borderLeft: 0
@@ -81,8 +185,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 6
   - name: weapon_missile
-    x: 118
-    y: 139
+    x: 376
+    y: 395
     width: 117
     height: 117
     borderLeft: 0

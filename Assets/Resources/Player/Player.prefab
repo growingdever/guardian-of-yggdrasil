@@ -60,6 +60,7 @@ GameObject:
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -869,6 +870,8 @@ MonoBehaviour:
   SpawnPoint: {fileID: 400002}
   PrefabBullet: {fileID: 100000, guid: 37568f4e6cc6e483287623ef08ab0458, type: 2}
   PrefabMissile: {fileID: 100004, guid: b3bf811bb2b0948cf907962eb4c4aa93, type: 2}
+  SpriteWeaponBullet: {fileID: 0}
+  SpriteWeaponMissile: {fileID: 0}
   BulletSpeed: 6
   BulletDamage: 3
   BulletDelay: .100000001
@@ -894,6 +897,18 @@ MonoBehaviour:
   UnitPerMeter: 1
   KilometerPerHour: 0
   RollDampingFactor: 1
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b4b80e12dd2c4226a8cf8ab291c62be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SliderHP: {fileID: 0}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
