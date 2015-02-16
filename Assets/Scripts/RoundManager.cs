@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System;
 
 
-public class EventRoundChnage : EventArgs
+public class EventRoundChange : EventArgs
 {
 	public int round;
 }
@@ -15,7 +15,7 @@ public class RoundManager : MonoBehaviour {
 	public UILabel LabelCurrentRound;
 	public float SecondsPerRound;
 
-	public event EventHandler<EventRoundChnage> OnRoundChangeCallbacks;
+	public event EventHandler<EventRoundChange> OnRoundChangeCallbacks;
 
 	int _currentRound;
 	public int CurrentRound {
@@ -25,7 +25,7 @@ public class RoundManager : MonoBehaviour {
 		private set {
 			_currentRound = value;
 
-			var e = new EventRoundChnage {round = this.CurrentRound};
+			var e = new EventRoundChange {round = this.CurrentRound};
 			OnRoundChangeCallbacks( this, e );
 		}
 	}

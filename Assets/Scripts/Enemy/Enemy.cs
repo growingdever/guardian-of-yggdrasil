@@ -71,6 +71,6 @@ public abstract class Enemy : MonoBehaviour {
 
 	abstract protected void OnCollidedWithPlayer (Player player);
 
-	abstract protected void OnRoundChanged (object sender, EventRoundChnage e);
+	abstract protected void OnRoundChanged (object sender, EventRoundChange e);
 
 }
