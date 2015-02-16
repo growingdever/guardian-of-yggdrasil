@@ -25,12 +25,15 @@ public class Player : MonoBehaviour {
 	}
 
 
-	// Use this for initialization
+	void Awake () {
+		MaxHP = 100;
+		HP = MaxHP;
+	}
+
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 	
 	}

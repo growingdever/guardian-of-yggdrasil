@@ -8,7 +8,7 @@ public class EventEnemyLifeCycle : EventArgs
 	public GameObject gameObject;
 }
 
-public class Enemy : MonoBehaviour {
+public abstract class Enemy : MonoBehaviour {
 
 	public GameObject PrefabExplosionEffect;
 
@@ -24,6 +24,16 @@ public class Enemy : MonoBehaviour {
 			}
 		}
 	}
+
+	public int DamageCollidedYggdrasil {
+		get;
+		protected set;
+	}
+
+	public int DamageCollidedPlayer {
+		get;
+		protected set;
+	}
 	
 	public event EventHandler<EventEnemyLifeCycle> OnDeadCallbacks;
 
@@ -37,5 +47,25 @@ public class Enemy : MonoBehaviour {
 		this.transform.parent = null;
 		Destroy(this.gameObject);
 	}
+
+	protected void OnCollisionEnter(Collision collision) {
+		Yggdrasil yggdrasil = collision.gameObject.GetComponent<Yggdrasil> ();
+		Player player = collision.gameObject.GetComponent<Player> ();
+
+		if (yggdrasil != null) {
+			OnCollidedWithYggdrasil( yggdrasil );
+		}
+		if (player != null) {
+			OnCollidedWithPlayer( player );
+		}
+
+		OnDead ();
+	}
+
+	abstract protected void OnCollidedWithYggdrasil (Yggdrasil yggdrasil);
+
+	abstract protected void OnCollidedWithPlayer (Player player);
+
+	abstract protected void OnRoundChanged (int round);
 
 }
