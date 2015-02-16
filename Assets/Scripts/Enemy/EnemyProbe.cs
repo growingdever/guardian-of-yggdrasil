@@ -8,8 +8,10 @@ public class EnemyProbe : Enemy {
 	public readonly int[] ROUND_TABLE_DAMAGE_COLLIDED_YGGDRASIL = { 5, };
 	public readonly int[] ROUND_TABLE_DAMAGE_COLLIDED_PLAYER = { 5, };
 
-	protected override void OnRoundChanged (int round)
+	protected override void OnRoundChanged (object sender, EventRoundChnage e)
 	{
+		int round = e.round;
+
 		int i = round < ROUND_TABLE_DAMAGE_COLLIDED_YGGDRASIL.Length ? round : ROUND_TABLE_DAMAGE_COLLIDED_YGGDRASIL.Length - 1;
 		DamageCollidedYggdrasil = ROUND_TABLE_DAMAGE_COLLIDED_YGGDRASIL [i];
 		

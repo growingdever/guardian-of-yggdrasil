@@ -18,8 +18,8 @@ public class Player : MonoBehaviour {
 		}
 		set {
 			_hp = value;
-			if( _hp <= 0 ) {
-				SliderHP.value = 1.0f * HP / MaxHP;
+			if( _hp >= 0 ) {
+				SliderHP.value = 1.0f * _hp / MaxHP;
 			}
 		}
 	}

@@ -38,6 +38,11 @@ public abstract class Enemy : MonoBehaviour {
 	public event EventHandler<EventEnemyLifeCycle> OnDeadCallbacks;
 
 
+	protected void Awake() {
+		RoundManager roundManager = GameObject.Find ("RoundManager").GetComponent<RoundManager> ();
+		roundManager.OnRoundChangeCallbacks += this.OnRoundChanged;
+	}
+	
 	protected void OnDead() {
 		var e = new EventEnemyLifeCycle {gameObject = this.gameObject};
 		OnDeadCallbacks(this, e);
@@ -49,8 +54,8 @@ public abstract class Enemy : MonoBehaviour {
 	}
 
 	protected void OnCollisionEnter(Collision collision) {
-		Yggdrasil yggdrasil = collision.gameObject.GetComponent<Yggdrasil> ();
-		Player player = collision.gameObject.GetComponent<Player> ();
+		Yggdrasil yggdrasil = collision.collider.gameObject.GetComponent<Yggdrasil> ();
+		Player player = collision.collider.gameObject.GetComponent<Player> ();
 
 		if (yggdrasil != null) {
 			OnCollidedWithYggdrasil( yggdrasil );
@@ -66,6 +71,6 @@ public abstract class Enemy : MonoBehaviour {
 
 	abstract protected void OnCollidedWithPlayer (Player player);
 
-	abstract protected void OnRoundChanged (int round);
+	abstract protected void OnRoundChanged (object sender, EventRoundChnage e);
 
 }
