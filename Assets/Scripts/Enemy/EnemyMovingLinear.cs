@@ -11,5 +11,6 @@ public class EnemyMovingLinear : EnemyMoving {
 		float speedFactor = UnitCalculator.ToUnitFactorFromVelocity(KilometerPerHour);
 		
 		this.transform.position += norm * speedFactor;
+		this.transform.forward = (TargetPoint.position - this.transform.position).normalized;
 	}
 }
