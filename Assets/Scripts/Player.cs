@@ -24,10 +24,17 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	StateManager StateManager;
+
 
 	void Awake () {
 		MaxHP = 100;
 		HP = MaxHP;
+
+		RoundManager roundManager = GameObject.Find ("RoundManager").GetComponent<RoundManager> ();
+		roundManager.OnRoundChangeCallbacks += this.OnRoundChanged;
+
+		StateManager = GameObject.Find("UI").GetComponent<StateManager>();
 	}
 
 	void Start () {
@@ -36,5 +43,9 @@ public class Player : MonoBehaviour {
 
 	void Update () {
 	
+	}
+
+	void OnRoundChanged (object sender, EventRoundChange e) {
+		StateManager.CurrentState = StateManager.EState.Upgrade;
 	}
 }

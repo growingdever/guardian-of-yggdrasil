@@ -11,7 +11,7 @@ public class EnemyMark : MonoBehaviour {
 
 
 	void Start () {
-		UIRoot = GameObject.Find ("UI Root").GetComponent<UIRoot> ();
+		UIRoot = GameObject.Find ("UI").GetComponent<UIRoot> ();
 		SpriteMark = this.GetComponent<UISprite> ();
 	}
 	
