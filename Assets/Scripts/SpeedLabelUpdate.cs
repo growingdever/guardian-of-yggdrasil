@@ -12,6 +12,6 @@ public class SpeedLabelUpdate : MonoBehaviour {
 	}
 
 	void Update () {
-		Label.text = (int)Flight.KilometerPerHour + " km/h";
+		Label.text = (int)Flight.CurrentSpeed + " km/h";
 	}
 }

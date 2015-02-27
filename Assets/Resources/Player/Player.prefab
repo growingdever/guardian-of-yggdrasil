@@ -896,7 +896,8 @@ MonoBehaviour:
   RotationPowerYaw: 2
   RotationPowerPitch: 2
   RollDampingFactor: 1
-  KilometerPerHour: 180
+  KeyBooster: 306
+  KeyDecelerating: 304
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

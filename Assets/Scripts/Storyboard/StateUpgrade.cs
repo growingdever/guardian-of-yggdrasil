@@ -37,7 +37,7 @@ public class StateUpgrade : State {
 	public void OnClickSpeedUp()
 	{
 		FlightController flightController = player.GetComponent<FlightController> ();
-		flightController.KilometerPerHour += 10.0f;
+		flightController.UpgradeSpeed ();
 
 		StartNextRound ();
 	}
