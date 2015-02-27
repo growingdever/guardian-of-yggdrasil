@@ -764,13 +764,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: .678431392}
   mPivot: 4
-  mWidth: 1204
+  mWidth: 1621
   mHeight: 720
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.82361114
+  aspectRatio: 2.25138879
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -980,6 +980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StateSymbol: 1
+  player: {fileID: 0}
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
