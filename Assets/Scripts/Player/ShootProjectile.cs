@@ -3,6 +3,10 @@ using System.Collections;
 
 public class ShootProjectile : MonoBehaviour {
 
+	public readonly int[] UPGRADE_TABLE_BULLET_DAMAGE = { 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	public readonly int[] UPGRADE_TABLE_MISSILE_DAMAGE = { 10, 14, 18, 22, 26, 30 };
+	public readonly int[] UPGRADE_TABLE_MISSILE_DELAY = { 5, 4, 4, 3, 3, 2, 2, 1 };
+
 	public Transform ProjectileContainer;
 	public Transform SpawnPoint;
 	public GameObject PrefabBullet;
@@ -32,6 +36,21 @@ public class ShootProjectile : MonoBehaviour {
 		private set;
 	}
 
+	public int BulletDamageLevel {
+		get;
+		private set;
+	}
+
+	public int MissileDamageLevel {
+		get;
+		private set;
+	}
+
+	public int MissileDelayLevel {
+		get;
+		private set;
+	}
+
 	Camera _playerCamera;
 	float _bulletDelay;
 	float _missileDelay;
@@ -43,6 +62,12 @@ public class ShootProjectile : MonoBehaviour {
 
 	void Start () {
 		UpdateWeaponUIByState();
+
+		// for initializing property about attack
+		BulletDamageLevel = MissileDamageLevel = MissileDelayLevel = -1;
+		UpgradeBulletDamage ();
+		UpgradeMissileDamage ();
+		UpgradeMissileDelay ();
 	}
 
 	void Update () {
@@ -140,6 +165,21 @@ public class ShootProjectile : MonoBehaviour {
 			// this collider is enemy!
 			enemy.HP -= MissileDamage;
 		}
+	}
+
+	public void UpgradeBulletDamage() {
+		BulletDamageLevel++;
+		BulletDamage = Util.UpdateValueByTable (UPGRADE_TABLE_BULLET_DAMAGE, BulletDamageLevel);
+	}
+
+	public void UpgradeMissileDamage() {
+		MissileDamageLevel++;
+		MissileDamage = Util.UpdateValueByTable (UPGRADE_TABLE_MISSILE_DAMAGE, MissileDamageLevel);
+	}
+
+	public void UpgradeMissileDelay() {
+		MissileDelayLevel++;
+		MissileDelay = Util.UpdateValueByTable (UPGRADE_TABLE_MISSILE_DELAY, MissileDelayLevel);
 	}
 
 }

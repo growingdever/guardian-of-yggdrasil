@@ -36,24 +36,25 @@ public class StateUpgrade : State {
 
 	public void OnClickSpeedUp()
 	{
-		FlightController flightController = player.GetComponent<FlightController> ();
-		flightController.UpgradeSpeed ();
-
+		player.UpgradeSpeed ();
 		StartNextRound ();
 	}
 
 	public void OnClickBulletDamageUp()
 	{
+		player.UpgradeDamageOfBullet ();
 		StartNextRound ();
 	}
 
 	public void OnClickMissileDamageUp()
 	{
+		player.UpgradeDamageOfMissile ();
 		StartNextRound ();
 	}
 
 	public void OnClickMissileCoolDown()
 	{
+		player.UpgradeCoolDownOfMissile ();
 		StartNextRound ();
 	}
 

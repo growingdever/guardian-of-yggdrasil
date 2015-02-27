@@ -9,9 +9,9 @@ public class FlightController : MonoBehaviour
 		Decelerating,
 	}
 
-	public readonly int[] UPGRADE_TABLE_SPEED_NORMAL = { 180, };
-	public readonly int[] UPGRADE_TABLE_SPEED_BOOSTER = { 200, };
-	public readonly int[] UPGRADE_TABLE_SPEED_DECELERATING = { 160, };
+	public readonly int[] UPGRADE_TABLE_SPEED_NORMAL = { 180, 200, 220, 230, 240 };
+	public readonly int[] UPGRADE_TABLE_SPEED_BOOSTER = { 200, 220, 240, 250, 260 };
+	public readonly int[] UPGRADE_TABLE_SPEED_DECELERATING = { 160, 180, 200, 210, 220 };
 
 	public float RotationPowerRoll = 0.3f;
 	public float RotationPowerYaw = 0.3f;
@@ -112,15 +112,10 @@ public class FlightController : MonoBehaviour
 	}
 
 	void UpdateSpeedByUpgradeLevel() {
-		int i;
-		i = CurrentUpgradeSpeedLevel < UPGRADE_TABLE_SPEED_NORMAL.Length ? 
-			CurrentUpgradeSpeedLevel : UPGRADE_TABLE_SPEED_NORMAL.Length - 1;
-		SpeedOnNormal = UPGRADE_TABLE_SPEED_NORMAL [i];
-		i = CurrentUpgradeSpeedLevel < UPGRADE_TABLE_SPEED_BOOSTER.Length ? 
-			CurrentUpgradeSpeedLevel : UPGRADE_TABLE_SPEED_BOOSTER.Length - 1;
-		SpeedOnBooster = UPGRADE_TABLE_SPEED_BOOSTER [i];
-		i = CurrentUpgradeSpeedLevel < UPGRADE_TABLE_SPEED_DECELERATING.Length ? 
-			CurrentUpgradeSpeedLevel : UPGRADE_TABLE_SPEED_DECELERATING.Length - 1;
-		SpeedOnDecelerating = UPGRADE_TABLE_SPEED_DECELERATING [i];
+		SpeedOnNormal = Util.UpdateValueByTable (UPGRADE_TABLE_SPEED_NORMAL, CurrentUpgradeSpeedLevel);
+		SpeedOnBooster = Util.UpdateValueByTable (UPGRADE_TABLE_SPEED_BOOSTER, CurrentUpgradeSpeedLevel);
+		SpeedOnDecelerating = Util.UpdateValueByTable (UPGRADE_TABLE_SPEED_DECELERATING, CurrentUpgradeSpeedLevel);
+
+		CurrentFlightState = CurrentFlightState;
 	}
 }

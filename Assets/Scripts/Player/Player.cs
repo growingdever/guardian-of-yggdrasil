@@ -48,4 +48,24 @@ public class Player : MonoBehaviour {
 	void OnRoundChanged (object sender, EventRoundChange e) {
 		StateManager.CurrentState = StateManager.EState.Upgrade;
 	}
+
+	public void UpgradeSpeed() {
+		FlightController flightController = this.GetComponent<FlightController> ();
+		flightController.UpgradeSpeed ();
+	}
+
+	public void UpgradeDamageOfBullet() {
+		ShootProjectile comp = this.GetComponent<ShootProjectile> ();
+		comp.UpgradeBulletDamage ();
+	}
+
+	public void UpgradeDamageOfMissile() {
+		ShootProjectile comp = this.GetComponent<ShootProjectile> ();
+		comp.UpgradeMissileDamage ();
+	}
+
+	public void UpgradeCoolDownOfMissile() {
+		ShootProjectile comp = this.GetComponent<ShootProjectile> ();
+		comp.UpgradeMissileDelay ();
+	}
 }
