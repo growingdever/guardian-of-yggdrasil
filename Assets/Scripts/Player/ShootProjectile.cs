@@ -3,9 +3,14 @@ using System.Collections;
 
 public class ShootProjectile : MonoBehaviour {
 
+	public enum WeaponType {
+		Bullet,
+		Missile,
+	}
+
 	public readonly int[] UPGRADE_TABLE_BULLET_DAMAGE = { 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 	public readonly int[] UPGRADE_TABLE_MISSILE_DAMAGE = { 10, 14, 18, 22, 26, 30 };
-	public readonly int[] UPGRADE_TABLE_MISSILE_DELAY = { 5, 4, 4, 3, 3, 2, 2, 1 };
+	public readonly float[] UPGRADE_TABLE_MISSILE_DELAY = { 5.0f, 4.0f, 4.0f, 3.0f, 3.0f, 2.0f, 2.0f, 1.0f };
 
 	public Transform ProjectileContainer;
 	public Transform SpawnPoint;
@@ -18,38 +23,20 @@ public class ShootProjectile : MonoBehaviour {
 
 	// below two speed is not unified....
 	public float BulletSpeed = 3.0f;
-	public int BulletDamage;
-	public float BulletDelay;
 	public float MissileSpeed = 500.0f;
-	public int MissileDamage;
-	public int MissileDelay;
+
 	public float ForwardOffsetFactor = 1000.0f;
 	public float ColliderRadius = 5.0f;
 
-	public enum WeaponType {
-		Bullet,
-		Missile,
-	}
-
-	public WeaponType CurrentWeapon {
-		get;
-		private set;
-	}
-
-	public int BulletDamageLevel {
-		get;
-		private set;
-	}
-
-	public int MissileDamageLevel {
-		get;
-		private set;
-	}
-
-	public int MissileDelayLevel {
-		get;
-		private set;
-	}
+	// attack 
+	public WeaponType CurrentWeapon { get; private set; }
+	public int BulletDamageLevel { get; private set; }
+	public int MissileDamageLevel { get; private set; }
+	public int MissileDelayLevel { get; private set; }
+	public int BulletDamage;
+	public float BulletDelay;
+	public int MissileDamage;
+	public float MissileDelay;
 
 	Camera _playerCamera;
 	float _bulletDelay;
