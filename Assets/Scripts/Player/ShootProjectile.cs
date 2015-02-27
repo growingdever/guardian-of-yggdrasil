@@ -33,10 +33,10 @@ public class ShootProjectile : MonoBehaviour {
 	public int BulletDamageLevel { get; private set; }
 	public int MissileDamageLevel { get; private set; }
 	public int MissileDelayLevel { get; private set; }
-	public int BulletDamage;
-	public float BulletDelay;
-	public int MissileDamage;
-	public float MissileDelay;
+	public int BulletDamage { get; private set; }
+	public float BulletDelay { get; private set; }
+	public int MissileDamage { get; private set; }
+	public float MissileDelay { get; private set; }
 
 	Camera _playerCamera;
 	float _bulletDelay;

@@ -874,11 +874,7 @@ MonoBehaviour:
   SpriteWeaponBullet: {fileID: 0}
   SpriteWeaponMissile: {fileID: 0}
   BulletSpeed: 6
-  BulletDamage: 3
-  BulletDelay: .100000001
   MissileSpeed: 500
-  MissileDamage: 10
-  MissileDelay: 3
   ForwardOffsetFactor: 1000
   ColliderRadius: 5
 --- !u!114 &11400002
