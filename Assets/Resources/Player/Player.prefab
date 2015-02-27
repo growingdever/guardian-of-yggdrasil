@@ -895,9 +895,8 @@ MonoBehaviour:
   RotationPowerRoll: 2
   RotationPowerYaw: 2
   RotationPowerPitch: 2
-  UnitPerMeter: 1
-  KilometerPerHour: 0
   RollDampingFactor: 1
+  KilometerPerHour: 180
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

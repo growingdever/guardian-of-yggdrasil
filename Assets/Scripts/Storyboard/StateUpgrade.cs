@@ -3,6 +3,8 @@ using System.Collections;
 
 public class StateUpgrade : State {
 
+	public Player player;
+
 	protected override void Awake ()
 	{
 		base.Awake ();
@@ -34,21 +36,29 @@ public class StateUpgrade : State {
 
 	public void OnClickSpeedUp()
 	{
-		StateManager.CurrentState = StateManager.EState.Game;
+		FlightController flightController = player.GetComponent<FlightController> ();
+		flightController.KilometerPerHour += 10.0f;
+
+		StartNextRound ();
 	}
 
 	public void OnClickBulletDamageUp()
 	{
-		
+		StartNextRound ();
 	}
 
 	public void OnClickMissileDamageUp()
 	{
-		
+		StartNextRound ();
 	}
 
 	public void OnClickMissileCoolDown()
 	{
-		
+		StartNextRound ();
+	}
+
+	void StartNextRound()
+	{
+		StateManager.CurrentState = StateManager.EState.Game;
 	}
 }
