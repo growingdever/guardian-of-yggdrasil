@@ -15,7 +15,6 @@ GameObject:
   - 114: {fileID: 11400002}
   - 135: {fileID: 13500000}
   - 54: {fileID: 5400000}
-  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: EnemyBigEye
   m_TagString: Untagged
@@ -101,7 +100,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -149,23 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KilometerPerHour: 100
   TargetPoint: {fileID: 0}
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2542657b3ad7e497e9ad6736c7f42eaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PrefabExplosionEffect: {fileID: 100000, guid: 5bcad4aff5d9648239dadc0dfa6094a0,
-    type: 2}
-  MissileSpawnPoint: {fileID: 400002}
-  PrefabMissile: {fileID: 100010, guid: ff2c25f7adec04b0a9532fe259386156, type: 2}
-  AttackRange: 0
-  AttackSpeed: 0
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

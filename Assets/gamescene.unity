@@ -605,9 +605,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1 &290225158
 GameObject:
@@ -3410,7 +3410,7 @@ MonoBehaviour:
   Range: 1000
   EnemyContainer: {fileID: 82751627}
   PrefabEnemies:
-  - {fileID: 100000, guid: bb8dc17a4cd8b459eb70da3ba6b78708, type: 2}
+  - {fileID: 100000, guid: 002dbdf59dc1f4103bf36913485869d7, type: 2}
   CurrentLevel: 0
   SpawnPoint: {fileID: 1336070760}
   TargetPoint: {fileID: 273503413}
@@ -3945,9 +3945,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!135 &1030406661
 SphereCollider:
@@ -6992,6 +6992,14 @@ Prefab:
       propertyPath: SliderHP
       value: 
       objectReference: {fileID: 700539969}
+    - target: {fileID: 5400000, guid: b17756feb34fe4821930986eed14fbfb, type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400000, guid: b17756feb34fe4821930986eed14fbfb, type: 2}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b17756feb34fe4821930986eed14fbfb, type: 2}
   m_RootGameObject: {fileID: 1030406655}
@@ -10037,6 +10045,14 @@ Prefab:
       propertyPath: SliderHP
       value: 
       objectReference: {fileID: 2066162847}
+    - target: {fileID: 5400000, guid: a1f6518db8f6e42519794e57a9011065, type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400000, guid: a1f6518db8f6e42519794e57a9011065, type: 2}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1f6518db8f6e42519794e57a9011065, type: 2}
   m_RootGameObject: {fileID: 273503409}
