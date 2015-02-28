@@ -100,7 +100,7 @@ public class ShootProjectile : MonoBehaviour {
 		clone.transform.LookAt (_playerCamera.transform.position + _playerCamera.transform.forward * 10000);
 		clone.transform.Rotate (90, 0, 0);
 
-		BulletMachineGun comp = clone.GetComponent<BulletMachineGun>();
+		PlayerBulletMachineGun comp = clone.GetComponent<PlayerBulletMachineGun>();
 		comp.Damage = BulletDamage;
 		comp.Speed = BulletSpeed;
 		comp.OnCollidedCallbacks += OnBulletCollisionEnter;
@@ -112,28 +112,12 @@ public class ShootProjectile : MonoBehaviour {
 		clone.transform.parent = ProjectileContainer;
 		clone.transform.LookAt (_playerCamera.transform.position + _playerCamera.transform.forward * 10000);
 
-		EffectSettings setting = clone.GetComponent<EffectSettings>();
-		setting.MoveSpeed = MissileSpeed;
-		setting.MoveDistance = 1000.0f;
-		setting.IsHomingMove = true;
-		setting.ColliderRadius = ColliderRadius;
-		setting.CollisionEnter += this.OnMissileCollisionEnter;
-
-		var go = new GameObject();
-		go.transform.position = spawnPoint.position + _playerCamera.transform.forward * ForwardOffsetFactor;
-		go.transform.parent = setting.gameObject.transform;
-		setting.Target = go;
-
-		StartCoroutine (DestroyProjectile (clone));
+		PlayerMissile comp = clone.GetComponent<PlayerMissile> ();
+		comp.Damage = MissileDamage;
+		comp.Speed = MissileSpeed;
+		comp.OnCollidedCallbacks += OnMissileCollisionEnter;
 	}
 	
-	IEnumerator DestroyProjectile( GameObject obj ) {
-		yield return new WaitForSeconds( 10 );
-		if (obj != null) {
-			Destroy( obj );
-		}
-	}
-
 	void OnBulletCollisionEnter(object sender, EventArgsGameObject e) {
 		GameObject collided = e.gameObject;
 		Enemy enemy = collided.GetComponent<Enemy> ();
@@ -144,11 +128,13 @@ public class ShootProjectile : MonoBehaviour {
 		}
 	}
 
-	void OnMissileCollisionEnter(object sender, CollisionInfo e) {
-		Enemy enemy = e.Hit.collider.GetComponent<Enemy>();
-		if( enemy != null ) {
-			// this collider is enemy!
-			enemy.HP -= MissileDamage;
+	void OnMissileCollisionEnter(object sender, EventArgsGameObject e) {
+		GameObject collided = e.gameObject;
+		Enemy enemy = collided.GetComponent<Enemy> ();
+		if (enemy != null) {
+			Projectile projectile = sender as Projectile;
+			enemy.HP -= projectile.Damage;
+			Destroy( collided );
 		}
 	}
 

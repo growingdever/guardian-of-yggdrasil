@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BulletMachineGun : Projectile {
+public class PlayerBulletMachineGun : Projectile {
 
 	protected override void Move ()
 	{

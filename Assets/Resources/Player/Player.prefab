@@ -364,7 +364,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: .101801716, y: 9.45744261e-10, z: 1.25479432e-10, w: .99480474}
-  m_LocalPosition: {x: -3.27825546e-07, y: 7.07543945, z: -12.0542278}
+  m_LocalPosition: {x: -3.40904535e-07, y: 8.88568115, z: -18.6699543}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
@@ -874,7 +874,7 @@ MonoBehaviour:
   SpriteWeaponBullet: {fileID: 0}
   SpriteWeaponMissile: {fileID: 0}
   BulletSpeed: 6
-  MissileSpeed: 500
+  MissileSpeed: 3
   ForwardOffsetFactor: 1000
   ColliderRadius: 5
 --- !u!114 &11400002
