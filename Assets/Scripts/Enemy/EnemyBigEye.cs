@@ -57,15 +57,20 @@ public class EnemyBigEye : Enemy {
 	}
 
 	void OnMissileCollisionEnter(object sender, EventArgsGameObject e) {
+		Projectile projectile = sender as Projectile;
 		GameObject collided = e.gameObject;
-		Enemy enemy = collided.GetComponent<Enemy> ();
-		if (enemy != null) {
-			Projectile projectile = sender as Projectile;
-			enemy.HP -= projectile.Damage;
-			Destroy( collided );
+
+		Yggdrasil yggdrasil = collided.GetComponent<Yggdrasil> ();
+		if (yggdrasil != null) {
+			yggdrasil.HP -= projectile.Damage;
+		}
+
+		Player player = collided.GetComponent<Player> ();
+		if (player != null) {
+			player.HP -= projectile.Damage;
 		}
 	}
-	
+
 	protected override void OnRoundChanged (object sender, EventRoundChange e)
 	{
 		int round = e.round;
