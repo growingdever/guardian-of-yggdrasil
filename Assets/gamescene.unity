@@ -6678,7 +6678,7 @@ Transform:
   m_PrefabInternal: {fileID: 2115052777}
   m_GameObject: {fileID: 1339380478}
   m_LocalRotation: {x: .101801716, y: 9.45744261e-10, z: 1.25479432e-10, w: .99480474}
-  m_LocalPosition: {x: -3.27825546e-07, y: 7.07543945, z: -12.0542278}
+  m_LocalPosition: {x: -3.40904535e-07, y: 8.88568115, z: -18.6699543}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1030406656}
@@ -7393,7 +7393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LabelNextRound: {fileID: 1015206075}
   LabelCurrentRound: {fileID: 2035509305}
-  SecondsPerRound: 5
+  SecondsPerRound: 30
 --- !u!1 &1632212093
 GameObject:
   m_ObjectHideFlags: 0
@@ -10742,6 +10742,18 @@ Prefab:
       propertyPath: SliderHP
       value: 
       objectReference: {fileID: 700539969}
+    - target: {fileID: 400008, guid: b17756feb34fe4821930986eed14fbfb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3.40904535e-07
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: b17756feb34fe4821930986eed14fbfb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 8.88568115
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: b17756feb34fe4821930986eed14fbfb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -18.6699543
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b17756feb34fe4821930986eed14fbfb, type: 2}
   m_RootGameObject: {fileID: 1030406655}
