@@ -63,11 +63,15 @@ public class EnemyBigEye : Enemy {
 		Yggdrasil yggdrasil = collided.GetComponent<Yggdrasil> ();
 		if (yggdrasil != null) {
 			yggdrasil.HP -= projectile.Damage;
+			Destroy(projectile.gameObject);
+			return;
 		}
 
 		Player player = collided.GetComponent<Player> ();
 		if (player != null) {
 			player.HP -= projectile.Damage;
+			Destroy(projectile.gameObject);
+			return;
 		}
 	}
 
