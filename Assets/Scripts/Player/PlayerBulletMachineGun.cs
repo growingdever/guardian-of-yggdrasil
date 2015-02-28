@@ -9,4 +9,9 @@ public class PlayerBulletMachineGun : Projectile {
 		this.transform.position += this.transform.up * this.Speed;
 	}
 
+	protected override void Explode ()
+	{
+
+	}
+
 }

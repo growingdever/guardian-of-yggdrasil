@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39111389facb4454faa67d1bf02360d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KilometerPerHour: 100
+  KilometerPerHour: 374.079987
   TargetPoint: {fileID: 0}
 --- !u!135 &13500000
 SphereCollider:

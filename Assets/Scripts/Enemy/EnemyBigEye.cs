@@ -53,6 +53,7 @@ public class EnemyBigEye : Enemy {
 		EnemyBigEyeMissile comp = clone.GetComponent<EnemyBigEyeMissile> ();
 		comp.Damage = 10;
 		comp.Speed = 10;
+		comp.Shooter = this.gameObject;
 		comp.OnCollidedCallbacks += OnMissileCollisionEnter;
 	}
 
@@ -63,14 +64,12 @@ public class EnemyBigEye : Enemy {
 		Yggdrasil yggdrasil = collided.GetComponent<Yggdrasil> ();
 		if (yggdrasil != null) {
 			yggdrasil.HP -= projectile.Damage;
-			Destroy(projectile.gameObject);
 			return;
 		}
 
 		Player player = collided.GetComponent<Player> ();
 		if (player != null) {
 			player.HP -= projectile.Damage;
-			Destroy(projectile.gameObject);
 			return;
 		}
 	}

@@ -100,6 +100,7 @@ public class ShootProjectile : MonoBehaviour {
 		PlayerBulletMachineGun comp = clone.GetComponent<PlayerBulletMachineGun>();
 		comp.Damage = BulletDamage;
 		comp.Speed = BulletSpeed;
+		comp.Shooter = this.gameObject;
 		comp.OnCollidedCallbacks += OnBulletCollisionEnter;
 	}
 
@@ -112,6 +113,7 @@ public class ShootProjectile : MonoBehaviour {
 		PlayerMissile comp = clone.GetComponent<PlayerMissile> ();
 		comp.Damage = MissileDamage;
 		comp.Speed = MissileSpeed;
+		comp.Shooter = this.gameObject;
 		comp.OnCollidedCallbacks += OnMissileCollisionEnter;
 	}
 	

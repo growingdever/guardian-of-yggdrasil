@@ -3,6 +3,8 @@ using System.Collections;
 
 public class EnemyBigEyeMissile : Projectile {
 
+	public GameObject PrefabExplosionEffect;
+
 	void Awake() {
 		EffectSettings setting = this.GetComponent<EffectSettings>();
 		setting.Target = this.transform.FindChild ("Target").gameObject; // cheating
@@ -14,6 +16,11 @@ public class EnemyBigEyeMissile : Projectile {
 	protected override void Move ()
 	{
 		this.transform.position += this.transform.forward * this.Speed;
+	}
+
+	protected override void Explode() {
+		Instantiate(PrefabExplosionEffect, this.transform.position, Quaternion.identity);
+		Destroy(this.gameObject);
 	}
 
 }

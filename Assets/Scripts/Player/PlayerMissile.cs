@@ -16,4 +16,9 @@ public class PlayerMissile : Projectile {
 		this.transform.position += this.transform.forward * this.Speed;
 	}
 
+	protected override void Explode ()
+	{
+
+	}
+
 }

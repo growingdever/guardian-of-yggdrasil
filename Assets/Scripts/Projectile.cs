@@ -9,11 +9,19 @@ public abstract class Projectile : MonoBehaviour {
 	public int Damage;
 	public float LifeTime;
 
+	public GameObject Shooter;
 	public event EventHandler<EventArgsGameObject> OnCollidedCallbacks;
 
 	protected virtual void OnCollisionEnter(Collision collision) {
+		if( collision.gameObject == Shooter || collision.gameObject.GetComponent<Projectile>() != null ) {
+			return;
+		}
+
 		var e = new EventArgsGameObject {gameObject = collision.gameObject};
 		OnCollidedCallbacks (this, e);
+
+		// every projectile will be exploded when collided with something
+		Explode();
 	}
 
 	protected virtual void Update() {
@@ -26,5 +34,7 @@ public abstract class Projectile : MonoBehaviour {
 	}
 
 	protected abstract void Move();
-	
+
+	protected abstract void Explode();
+
 }

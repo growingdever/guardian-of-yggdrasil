@@ -9,7 +9,7 @@ public class FlightController : MonoBehaviour
 		Decelerating,
 	}
 
-	public readonly int[] UPGRADE_TABLE_SPEED_NORMAL = { 180, 200, 220, 230, 240 };
+	public readonly int[] UPGRADE_TABLE_SPEED_NORMAL = { 0, 200, 220, 230, 240 };
 	public readonly int[] UPGRADE_TABLE_SPEED_BOOSTER = { 200, 220, 240, 250, 260 };
 	public readonly int[] UPGRADE_TABLE_SPEED_DECELERATING = { 160, 180, 200, 210, 220 };
 
