@@ -104,8 +104,6 @@ public class ShootProjectile : MonoBehaviour {
 		comp.Damage = BulletDamage;
 		comp.Speed = BulletSpeed;
 		comp.OnCollidedCallbacks += OnBulletCollisionEnter;
-
-		StartCoroutine (DestroyProjectile (clone));
 	}
 
 
