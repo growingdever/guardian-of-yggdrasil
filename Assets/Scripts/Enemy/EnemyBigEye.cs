@@ -74,12 +74,9 @@ public class EnemyBigEye : Enemy {
 	protected override void OnRoundChanged (object sender, EventRoundChange e)
 	{
 		int round = e.round;
-
-		int i = round < ROUND_TABLE_DAMAGE_COLLIDED_YGGDRASIL.Length ? round : ROUND_TABLE_DAMAGE_COLLIDED_YGGDRASIL.Length - 1;
-		DamageCollidedYggdrasil = ROUND_TABLE_DAMAGE_COLLIDED_YGGDRASIL [i];
-
-		i = round < ROUND_TABLE_DAMAGE_COLLIDED_PLAYER.Length ? round : ROUND_TABLE_DAMAGE_COLLIDED_PLAYER.Length - 1;
-		DamageCollidedPlayer = ROUND_TABLE_DAMAGE_COLLIDED_PLAYER [i];
+		
+		DamageCollidedYggdrasil = Util.UpdateValueByTable (ROUND_TABLE_DAMAGE_COLLIDED_YGGDRASIL, round);
+		DamageCollidedPlayer = Util.UpdateValueByTable (ROUND_TABLE_DAMAGE_COLLIDED_PLAYER, round);
 	}
 	
 	protected override void OnCollidedWithYggdrasil (Yggdrasil yggdrasil)

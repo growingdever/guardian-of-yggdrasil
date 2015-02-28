@@ -15,8 +15,6 @@ public class EnemyProbe : Enemy {
 
 		DamageCollidedYggdrasil = Util.UpdateValueByTable (ROUND_TABLE_DAMAGE_COLLIDED_YGGDRASIL, round);
 		DamageCollidedPlayer = Util.UpdateValueByTable (ROUND_TABLE_DAMAGE_COLLIDED_PLAYER, round);
-
-		print(ROUND_TABLE_DAMAGE_COLLIDED_YGGDRASIL.Length);
 	}
 
 	protected override void OnCollidedWithYggdrasil (Yggdrasil yggdrasil)
