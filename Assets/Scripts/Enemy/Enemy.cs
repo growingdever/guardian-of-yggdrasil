@@ -38,7 +38,7 @@ public abstract class Enemy : MonoBehaviour {
 	public event EventHandler<EventEnemyLifeCycle> OnDeadCallbacks;
 
 
-	protected void Awake() {
+	virtual protected void Awake() {
 		RoundManager roundManager = GameObject.Find ("RoundManager").GetComponent<RoundManager> ();
 		roundManager.OnRoundChangeCallbacks += this.OnRoundChanged;
 	}
