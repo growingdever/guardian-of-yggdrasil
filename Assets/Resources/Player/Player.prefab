@@ -874,9 +874,7 @@ MonoBehaviour:
   SpriteWeaponBullet: {fileID: 0}
   SpriteWeaponMissile: {fileID: 0}
   BulletSpeed: 6
-  MissileSpeed: 3
-  ForwardOffsetFactor: 1000
-  ColliderRadius: 5
+  MissileSpeed: 4
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

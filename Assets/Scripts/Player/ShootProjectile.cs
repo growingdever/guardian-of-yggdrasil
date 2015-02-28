@@ -25,9 +25,6 @@ public class ShootProjectile : MonoBehaviour {
 	public float BulletSpeed = 3.0f;
 	public float MissileSpeed = 500.0f;
 
-	public float ForwardOffsetFactor = 1000.0f;
-	public float ColliderRadius = 5.0f;
-
 	// attack 
 	public WeaponType CurrentWeapon { get; private set; }
 	public int BulletDamageLevel { get; private set; }
