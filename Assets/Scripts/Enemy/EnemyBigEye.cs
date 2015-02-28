@@ -85,11 +85,13 @@ public class EnemyBigEye : Enemy {
 	protected override void OnCollidedWithYggdrasil (Yggdrasil yggdrasil)
 	{
 		yggdrasil.HP -= DamageCollidedYggdrasil;
+		this.HP = 0;
 	}
 	
 	protected override void OnCollidedWithPlayer (Player player)
 	{
 		player.HP -= DamageCollidedPlayer;
+		this.HP = 0;
 	}
 
 }

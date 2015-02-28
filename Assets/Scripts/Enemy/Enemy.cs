@@ -41,6 +41,9 @@ public abstract class Enemy : MonoBehaviour {
 	virtual protected void Awake() {
 		RoundManager roundManager = GameObject.Find ("RoundManager").GetComponent<RoundManager> ();
 		roundManager.OnRoundChangeCallbacks += this.OnRoundChanged;
+
+		// update status by round on awake
+		OnRoundChanged( this, new EventRoundChange {round = roundManager.CurrentRound} );
 	}
 	
 	protected void OnDead() {
