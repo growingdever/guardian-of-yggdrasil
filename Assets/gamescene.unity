@@ -3410,7 +3410,7 @@ MonoBehaviour:
   Range: 1000
   EnemyContainer: {fileID: 82751627}
   PrefabEnemies:
-  - {fileID: 100000, guid: 002dbdf59dc1f4103bf36913485869d7, type: 2}
+  - {fileID: 100000, guid: bb8dc17a4cd8b459eb70da3ba6b78708, type: 2}
   CurrentLevel: 0
   SpawnPoint: {fileID: 1336070760}
   TargetPoint: {fileID: 273503413}

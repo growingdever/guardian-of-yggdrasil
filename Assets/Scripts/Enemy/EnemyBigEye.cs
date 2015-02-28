@@ -24,21 +24,46 @@ public class EnemyBigEye : Enemy {
 	}
 
 	void Update() {
+		if (!((EnemyMovingLinear)_moving).TargetPoint) {
+			return;
+		}
+
 		Vector3 dest = ((EnemyMovingLinear)_moving).TargetPoint.transform.position;
 		float dist = (this.transform.position - dest).magnitude;
-		_attackable = _moving.enabled = dist < AttackRange;
+		_moving.enabled = dist >= AttackRange;
+		_attackable = dist < AttackRange;
 
 
 		_attackDelay -= Time.deltaTime;
 		if (_attackable) {
 			if( _attackDelay < 0 ) {
+				_attackDelay = AttackSpeed;
 				Fire();
 			}
 		}
 	}
 
 	void Fire() {
+		GameObject clone = Instantiate (PrefabMissile, MissileSpawnPoint.position, MissileSpawnPoint.rotation) as GameObject;
+		Vector3 scale = clone.transform.localScale;
+		clone.transform.parent = this.transform;
+		clone.transform.localScale = scale;
+		clone.transform.forward = this.transform.forward;
+		
+		EnemyBigEyeMissile comp = clone.GetComponent<EnemyBigEyeMissile> ();
+		comp.Damage = 10;
+		comp.Speed = 10;
+		comp.OnCollidedCallbacks += OnMissileCollisionEnter;
+	}
 
+	void OnMissileCollisionEnter(object sender, EventArgsGameObject e) {
+		GameObject collided = e.gameObject;
+		Enemy enemy = collided.GetComponent<Enemy> ();
+		if (enemy != null) {
+			Projectile projectile = sender as Projectile;
+			enemy.HP -= projectile.Damage;
+			Destroy( collided );
+		}
 	}
 	
 	protected override void OnRoundChanged (object sender, EventRoundChange e)

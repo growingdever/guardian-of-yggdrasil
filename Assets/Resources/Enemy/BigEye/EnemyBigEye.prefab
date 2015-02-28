@@ -134,7 +134,7 @@ MonoBehaviour:
     type: 2}
   MissileSpawnPoint: {fileID: 400002}
   PrefabMissile: {fileID: 100010, guid: ff2c25f7adec04b0a9532fe259386156, type: 2}
-  AttackRange: 300
+  AttackRange: 500
   AttackSpeed: 10
 --- !u!114 &11400002
 MonoBehaviour:
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39111389facb4454faa67d1bf02360d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KilometerPerHour: 80
+  KilometerPerHour: 100
   TargetPoint: {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
@@ -160,8 +160,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2542657b3ad7e497e9ad6736c7f42eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrefabExplosionEffect: {fileID: 0}
-  MissileSpawnPoint: {fileID: 0}
+  PrefabExplosionEffect: {fileID: 100000, guid: 5bcad4aff5d9648239dadc0dfa6094a0,
+    type: 2}
+  MissileSpawnPoint: {fileID: 400002}
   PrefabMissile: {fileID: 100010, guid: ff2c25f7adec04b0a9532fe259386156, type: 2}
   AttackRange: 0
   AttackSpeed: 0
