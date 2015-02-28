@@ -45,7 +45,9 @@ public abstract class Enemy : MonoBehaviour {
 	
 	protected void OnDead() {
 		var e = new EventEnemyLifeCycle {gameObject = this.gameObject};
-		OnDeadCallbacks(this, e);
+		if (OnDeadCallbacks != null) {
+			OnDeadCallbacks(this, e);
+		}
 
 		Instantiate(PrefabExplosionEffect, this.transform.position, Quaternion.identity);
 
@@ -62,6 +64,10 @@ public abstract class Enemy : MonoBehaviour {
 		}
 		if (player != null) {
 			OnCollidedWithPlayer( player );
+		}
+
+		if (collision.collider.GetComponent<Enemy> ()) {
+			return;
 		}
 
 		OnDead ();
