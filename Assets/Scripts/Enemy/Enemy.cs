@@ -65,12 +65,6 @@ public abstract class Enemy : MonoBehaviour {
 		if (player != null) {
 			OnCollidedWithPlayer( player );
 		}
-
-		if (collision.collider.GetComponent<Enemy> ()) {
-			return;
-		}
-
-		OnDead ();
 	}
 
 	abstract protected void OnCollidedWithYggdrasil (Yggdrasil yggdrasil);

@@ -121,7 +121,6 @@ public class ShootProjectile : MonoBehaviour {
 		if (enemy != null) {
 			Projectile projectile = sender as Projectile;
 			enemy.HP -= projectile.Damage;
-			Destroy( collided );
 		}
 	}
 
@@ -131,7 +130,6 @@ public class ShootProjectile : MonoBehaviour {
 		if (enemy != null) {
 			Projectile projectile = sender as Projectile;
 			enemy.HP -= projectile.Damage;
-			Destroy( collided );
 		}
 	}
 
