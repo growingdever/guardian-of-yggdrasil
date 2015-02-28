@@ -24,7 +24,9 @@ public class EnemyHole : MonoBehaviour {
 
 	IEnumerator CreateEnemy() {
 		while(true) {
-			GameObject go = Instantiate(PrefabEnemies[CurrentLevel], SpawnPoint.position, Quaternion.identity) as GameObject;
+			GameObject go = Instantiate(PrefabEnemies[Random.Range(0, Mathf.Max(CurrentLevel, PrefabEnemies.Length - 1))], 
+			    SpawnPoint.position, 
+			    Quaternion.identity) as GameObject;
 			go.transform.parent = EnemyContainer.transform;
 			StartCoroutine( AppearanceEnemy(go) );
 
