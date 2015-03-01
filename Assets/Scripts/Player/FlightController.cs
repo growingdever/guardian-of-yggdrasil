@@ -9,7 +9,7 @@ public class FlightController : MonoBehaviour
 		Decelerating,
 	}
 
-	public readonly int[] UPGRADE_TABLE_SPEED_NORMAL = { 0, 200, 220, 230, 240 };
+	public readonly int[] UPGRADE_TABLE_SPEED_NORMAL = { 180, 200, 220, 230, 240 };
 	public readonly int[] UPGRADE_TABLE_SPEED_BOOSTER = { 200, 220, 240, 250, 260 };
 	public readonly int[] UPGRADE_TABLE_SPEED_DECELERATING = { 160, 180, 200, 210, 220 };
 
@@ -109,8 +109,15 @@ public class FlightController : MonoBehaviour
 			} else {
 				euler.z = Mathf.Max( euler.z, 360 - ModelRotationLimitPitch );
 			}
-
 			Model.transform.localEulerAngles = euler;
+
+			// damping rotation of model
+			float rollDampingX = euler.x > 180 ? 360 - euler.x : -euler.x;
+			float rollDampingY = euler.y > 180 ? 360 - euler.y : -euler.y;
+			float rollDampingZ = euler.z > 180 ? 360 - euler.z : -euler.z;
+			Model.transform.Rotate(rollDampingX * Time.deltaTime * RollDampingFactor, 
+			                       rollDampingY * Time.deltaTime * RollDampingFactor,
+			                       rollDampingZ * Time.deltaTime * RollDampingFactor);
 		}
 
 
