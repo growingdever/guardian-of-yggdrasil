@@ -23,8 +23,55 @@ public class Player : MonoBehaviour {
 			}
 		}
 	}
-
+	
 	StateManager StateManager;
+
+	ShootProjectile _shootProjectile;
+	FlightController _flightController;
+
+	public int SpeedLevel {
+		get {
+			return _flightController.CurrentUpgradeSpeedLevel + 1;
+		}
+	}
+	public bool IsSpeedMaxLevel {
+		get {
+			return SpeedLevel >= _flightController.UPGRADE_TABLE_SPEED_NORMAL.Length;
+		}
+	}
+
+	public int MachineGunPowerLevel {
+		get {
+			return _shootProjectile.BulletDamageLevel + 1;
+		}
+	}
+	public bool IsMachineGunPowerMaxLevel {
+		get {
+			return MachineGunPowerLevel >= _shootProjectile.UPGRADE_TABLE_BULLET_DAMAGE.Length;
+		}
+	}
+
+	public int MissilePowerLevel {
+		get {
+			return _shootProjectile.MissileDamageLevel + 1;
+		}
+	}
+	public bool IsMissilePowerMaxLevel {
+		get {
+			return MissilePowerLevel >= _shootProjectile.UPGRADE_TABLE_MISSILE_DAMAGE.Length;
+		}
+	}
+
+	public int MissileDelayLevel {
+		get {
+			return _shootProjectile.MissileDelayLevel + 1;
+		}
+	}
+	public bool IsMissileDelayMaxLevel {
+		get {
+			return MissileDelayLevel >= _shootProjectile.UPGRADE_TABLE_MISSILE_DELAY.Length;
+		}
+	}
 
 
 	void Awake () {
@@ -35,6 +82,9 @@ public class Player : MonoBehaviour {
 		roundManager.OnRoundChangeCallbacks += this.OnRoundChanged;
 
 		StateManager = GameObject.Find("UI").GetComponent<StateManager>();
+
+		_shootProjectile = this.GetComponent<ShootProjectile>();
+		_flightController = this.GetComponent<FlightController>();
 	}
 
 	void Start () {
@@ -52,6 +102,9 @@ public class Player : MonoBehaviour {
 	public void UpgradeSpeed() {
 		FlightController flightController = this.GetComponent<FlightController> ();
 		flightController.UpgradeSpeed ();
+
+		int level = flightController.CurrentUpgradeSpeedLevel;
+		int max = flightController.UPGRADE_TABLE_SPEED_NORMAL.Length;
 	}
 
 	public void UpgradeDamageOfBullet() {
