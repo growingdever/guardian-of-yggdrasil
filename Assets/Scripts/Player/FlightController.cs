@@ -90,7 +90,7 @@ public class FlightController : MonoBehaviour
 		// air resistance make rotating model
 		//
 		{
-			Model.transform.Rotate( new Vector3(Input.GetAxis("Horizontal") * AirResistanceRoll, 
+			Model.transform.Rotate( new Vector3(-1 * Mathf.Abs(Input.GetAxis("Horizontal")) * AirResistanceRoll, 
 			                                    Input.GetAxis("Horizontal") * AirResistanceYaw, 
 			                                    -Input.GetAxis("Horizontal") * AirResistancePitch) );
 			Vector3 euler = Model.transform.localEulerAngles;
@@ -100,7 +100,7 @@ public class FlightController : MonoBehaviour
 				euler.x = Mathf.Max( euler.x, 360 - ModelRotationLimitRoll );
 			}
 			if( euler.y < 180 ) {
-				euler.y = Mathf.Min( euler.y, ModelRotationLimitYaw * 2.0f );
+				euler.y = Mathf.Min( euler.y, ModelRotationLimitYaw );
 			} else {
 				euler.y = Mathf.Max( euler.y, 360 - ModelRotationLimitYaw );
 			}
