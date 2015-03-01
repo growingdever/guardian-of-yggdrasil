@@ -5,6 +5,7 @@ using System;
 
 public class EnemyBigEye : Enemy {
 
+	public readonly int[] ROUND_TABLE_MAX_HP = { 10, };
 	public readonly int[] ROUND_TABLE_DAMAGE_COLLIDED_YGGDRASIL = { 5, };
 	public readonly int[] ROUND_TABLE_DAMAGE_COLLIDED_PLAYER = { 5, };
 
@@ -18,9 +19,9 @@ public class EnemyBigEye : Enemy {
 	float _attackDelay;
 
 
-	protected override void Awake() {
-		base.Awake ();
+	void Start() {
 		_moving = this.GetComponent<EnemyMoving> ();
+		MaxHP = HP = Util.UpdateValueByTable (ROUND_TABLE_MAX_HP, RoundManager.CurrentRound);
 	}
 
 	void Update() {
