@@ -29,6 +29,16 @@ public class Player : MonoBehaviour {
 	ShootProjectile _shootProjectile;
 	FlightController _flightController;
 
+	int _point;
+	public int Point {
+		get {
+			return _point;
+		}
+		private set {
+			_point = value;
+		}
+	}
+
 	public int SpeedLevel {
 		get {
 			return _flightController.CurrentUpgradeSpeedLevel + 1;
@@ -96,29 +106,31 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnRoundChanged (object sender, EventRoundChange e) {
+		Point += 1;
 		StateManager.CurrentState = StateManager.EState.Upgrade;
 	}
 
 	public void UpgradeSpeed() {
 		FlightController flightController = this.GetComponent<FlightController> ();
 		flightController.UpgradeSpeed ();
-
-		int level = flightController.CurrentUpgradeSpeedLevel;
-		int max = flightController.UPGRADE_TABLE_SPEED_NORMAL.Length;
+		Point--;
 	}
 
 	public void UpgradeDamageOfBullet() {
 		ShootProjectile comp = this.GetComponent<ShootProjectile> ();
 		comp.UpgradeBulletDamage ();
+		Point--;
 	}
 
 	public void UpgradeDamageOfMissile() {
 		ShootProjectile comp = this.GetComponent<ShootProjectile> ();
 		comp.UpgradeMissileDamage ();
+		Point--;
 	}
 
 	public void UpgradeCoolDownOfMissile() {
 		ShootProjectile comp = this.GetComponent<ShootProjectile> ();
 		comp.UpgradeMissileDelay ();
+		Point--;
 	}
 }

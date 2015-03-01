@@ -4,6 +4,7 @@ using System.Collections;
 public class StateUpgrade : State {
 
 	public Player player;
+	public UILabel RemainPoint;
 	public UILabel LabelFlightSpeedLevel;
 	public UIButton ButtonFlightSpeed;
 	public UILabel LabelBulletDamageLevel;
@@ -32,6 +33,8 @@ public class StateUpgrade : State {
 	public override void OnEnter ()
 	{
 		base.OnEnter ();
+
+		UpdateByStatus();
 
 		PauseManager.Instance.Pause = true;
 	}
@@ -73,14 +76,16 @@ public class StateUpgrade : State {
 	}
 
 	void UpdateByStatus() {
+		RemainPoint.text = string.Format("Point : {0}", player.Point);
+
 		LabelFlightSpeedLevel.text = string.Format("Level : {0}", player.SpeedLevel);
 		LabelBulletDamageLevel.text = string.Format("Level : {0}", player.MachineGunPowerLevel);
 		LabelMissileDamageLevel.text = string.Format("Level : {0}", player.MissilePowerLevel);
 		LabelMissileDelayLevel.text = string.Format("Level : {0}", player.MissileDelayLevel);
 
-		ButtonFlightSpeed.isEnabled = ! player.IsSpeedMaxLevel;
-		ButtonBulletDamage.isEnabled = ! player.IsMachineGunPowerMaxLevel;
-		ButtonMissileDamage.isEnabled = ! player.IsMissilePowerMaxLevel;
-		ButtonMissileDelay.isEnabled = ! player.IsMissileDelayMaxLevel;
+		ButtonFlightSpeed.isEnabled = ! player.IsSpeedMaxLevel && player.Point > 0;
+		ButtonBulletDamage.isEnabled = ! player.IsMachineGunPowerMaxLevel && player.Point > 0;
+		ButtonMissileDamage.isEnabled = ! player.IsMissilePowerMaxLevel && player.Point > 0;
+		ButtonMissileDelay.isEnabled = ! player.IsMissileDelayMaxLevel && player.Point > 0;
 	}
 }
