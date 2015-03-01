@@ -25,7 +25,6 @@ public class EnemyProbe : Enemy {
 	protected override void OnCollidedWithYggdrasil (Yggdrasil yggdrasil)
 	{
 		yggdrasil.HP -= DamageCollidedYggdrasil;
-		print (DamageCollidedYggdrasil + " " + yggdrasil.HP);
 		this.HP = 0;
 	}
 	
