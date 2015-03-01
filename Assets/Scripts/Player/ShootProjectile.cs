@@ -22,8 +22,8 @@ public class ShootProjectile : MonoBehaviour {
 	public UISprite SpriteWeaponMissile;
 
 	// below two speed is not unified....
-	public float BulletSpeed = 3.0f;
-	public float MissileSpeed = 500.0f;
+	public float BulletSpeed = 6.0f;
+	public float MissileSpeed = 4.0f;
 
 	// attack 
 	public WeaponType CurrentWeapon { get; private set; }
@@ -47,6 +47,9 @@ public class ShootProjectile : MonoBehaviour {
 	void Start () {
 		UpdateWeaponUIByState();
 
+		_bulletDelay = BulletDelay = 0.15f;
+		_missileDelay = MissileDelay = 10.0f;
+
 		// for initializing property about attack
 		BulletDamageLevel = MissileDamageLevel = MissileDelayLevel = -1;
 		UpgradeBulletDamage ();
@@ -57,7 +60,7 @@ public class ShootProjectile : MonoBehaviour {
 	void Update () {
 		_bulletDelay += Time.deltaTime;
 		_missileDelay += Time.deltaTime;
-		if (Input.GetButton("Fire1")) {
+		if (Input.GetButton("Fire1") && ! PauseManager.Instance.Pause) {
 			if( CurrentWeapon == WeaponType.Bullet && _bulletDelay > BulletDelay ) {
 				_bulletDelay = 0;
 				SpawnBullet(SpawnPoint);

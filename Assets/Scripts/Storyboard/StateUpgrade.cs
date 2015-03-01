@@ -24,14 +24,14 @@ public class StateUpgrade : State {
 	{
 		base.OnEnter ();
 
-		Time.timeScale = 0.0f;
+		PauseManager.Instance.Pause = true;
 	}
 
 	public override void OnExit ()
 	{
 		base.OnExit ();
 
-		Time.timeScale = 1.0f;
+		PauseManager.Instance.Pause = false;
 	}
 
 	public void OnClickSpeedUp()

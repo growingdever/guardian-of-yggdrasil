@@ -825,9 +825,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!64 &6400000
 MeshCollider:
@@ -886,9 +886,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e45ef016e93a4319a52caffe9402093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationPowerRoll: 2
-  RotationPowerYaw: 2
-  RotationPowerPitch: 2
+  RotationPowerRoll: 20
+  RotationPowerYaw: 20
   RollDampingFactor: 1
   KeyBooster: 306
   KeyDecelerating: 304

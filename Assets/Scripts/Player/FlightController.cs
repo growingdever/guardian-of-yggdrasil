@@ -9,13 +9,12 @@ public class FlightController : MonoBehaviour
 		Decelerating,
 	}
 
-	public readonly int[] UPGRADE_TABLE_SPEED_NORMAL = { 0, 200, 220, 230, 240 };
+	public readonly int[] UPGRADE_TABLE_SPEED_NORMAL = { 180, 200, 220, 230, 240 };
 	public readonly int[] UPGRADE_TABLE_SPEED_BOOSTER = { 200, 220, 240, 250, 260 };
 	public readonly int[] UPGRADE_TABLE_SPEED_DECELERATING = { 160, 180, 200, 210, 220 };
 
-	public float RotationPowerRoll = 0.3f;
-	public float RotationPowerYaw = 0.3f;
-	public float RotationPowerPitch = 0.3f;
+	public float RotationPowerRoll = 15.0f;
+	public float RotationPowerYaw = 15.0f;
 	public float RollDampingFactor = 1.0f;
 
 	public KeyCode KeyBooster;
@@ -85,7 +84,7 @@ public class FlightController : MonoBehaviour
 		// rotating
 		//
 		Vector3 dir = new Vector3(-Input.GetAxis("Vertical") * RotationPowerRoll, Input.GetAxis("Horizontal") * RotationPowerYaw);
-		this.transform.Rotate(dir);
+		this.transform.Rotate(dir * Time.deltaTime);
 
 		Vector3 euler = this.transform.eulerAngles;
 		float rollDamping;
