@@ -4577,6 +4577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2956c12404e9f499a97abd0bf322aefa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GenerateInterval: 10
   Range: 1000
   EnemyContainer: {fileID: 82751627}
   PrefabEnemies:
@@ -4585,7 +4586,6 @@ MonoBehaviour:
   CurrentLevel: 0
   SpawnPoint: {fileID: 1336070760}
   TargetPoint: {fileID: 273503413}
-  EnemyMoveSpeed: 240
 --- !u!4 &923270431
 Transform:
   m_ObjectHideFlags: 0
@@ -8236,7 +8236,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.67222226
+  aspectRatio: 2.25138879
   mType: 0
   mFillDirection: 4
   mFillAmount: 1

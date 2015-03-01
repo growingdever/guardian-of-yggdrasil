@@ -3,13 +3,13 @@ using System.Collections;
 
 public class EnemyHole : MonoBehaviour {
 
+	public float GenerateInterval;
 	public float Range;
 	public GameObject EnemyContainer;
 	public GameObject[] PrefabEnemies;
 	public int CurrentLevel;
 	public Transform SpawnPoint;
 	public Transform TargetPoint;
-	public float EnemyMoveSpeed;
 
 	EnemyMarkCreator _markCreator;
 
@@ -30,7 +30,7 @@ public class EnemyHole : MonoBehaviour {
 			go.transform.parent = EnemyContainer.transform;
 			StartCoroutine( AppearanceEnemy(go) );
 
-			yield return new WaitForSeconds( 5.0f );
+			yield return new WaitForSeconds( GenerateInterval );
 
 			float radian = Random.Range(0.0f, Mathf.PI * 2);
 			Vector3 new_pos = TargetPoint.position;
