@@ -12,6 +12,11 @@ public abstract class Enemy : MonoBehaviour {
 
 	public GameObject PrefabExplosionEffect;
 
+	public int MaxHP {
+		get;
+		set;
+	}
+
 	int _hp;
 	public int HP {
 		get {
@@ -22,6 +27,12 @@ public abstract class Enemy : MonoBehaviour {
 			if( _hp <= 0 ) {
 				OnDead();
 			}
+		}
+	}
+
+	public bool IsHPMax {
+		get {
+			return HP == MaxHP;
 		}
 	}
 

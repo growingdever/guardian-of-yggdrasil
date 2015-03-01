@@ -11,11 +11,11 @@ public class EnemyHole : MonoBehaviour {
 	public Transform SpawnPoint;
 	public Transform TargetPoint;
 
-	EnemyMarkCreator _markCreator;
+	EnemyFollowingUIManager _enemyFollowingUIManager;
 
 
 	void Awake() {
-		_markCreator = this.GetComponent<EnemyMarkCreator> ();
+		_enemyFollowingUIManager = this.GetComponent<EnemyFollowingUIManager> ();
 	}
 	
 	void Start () {
@@ -62,8 +62,8 @@ public class EnemyHole : MonoBehaviour {
 
 		yield return new WaitForSeconds(3.5f);
 
-		_markCreator.CreateMark (go);
-		go.GetComponent<Enemy>().OnDeadCallbacks += _markCreator.RemoveMark;
+		_enemyFollowingUIManager.CreateUI (go);
+		go.GetComponent<Enemy>().OnDeadCallbacks += _enemyFollowingUIManager.RemoveUI;
 
 		EnemyMovingLinear comp = go.GetComponent<EnemyMovingLinear>();
 		comp.TargetPoint = TargetPoint;
