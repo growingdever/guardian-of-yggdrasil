@@ -886,6 +886,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e45ef016e93a4319a52caffe9402093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Model: {fileID: 100034}
+  AirResistanceRoll: 1
+  AirResistanceYaw: 1
+  AirResistancePitch: 1
+  ModelRotationLimitRoll: 15
+  ModelRotationLimitYaw: 20
+  ModelRotationLimitPitch: 35
   RotationPowerRoll: 20
   RotationPowerYaw: 20
   RollDampingFactor: 1

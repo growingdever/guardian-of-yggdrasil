@@ -9,10 +9,17 @@ public class FlightController : MonoBehaviour
 		Decelerating,
 	}
 
-	public readonly int[] UPGRADE_TABLE_SPEED_NORMAL = { 180, 200, 220, 230, 240 };
+	public readonly int[] UPGRADE_TABLE_SPEED_NORMAL = { 0, 200, 220, 230, 240 };
 	public readonly int[] UPGRADE_TABLE_SPEED_BOOSTER = { 200, 220, 240, 250, 260 };
 	public readonly int[] UPGRADE_TABLE_SPEED_DECELERATING = { 160, 180, 200, 210, 220 };
 
+	public GameObject Model;
+	public float AirResistanceRoll = 1.0f;
+	public float AirResistanceYaw = 1.0f;
+	public float AirResistancePitch = 1.0f;
+	public float ModelRotationLimitRoll = 15;
+	public float ModelRotationLimitYaw = 20;
+	public float ModelRotationLimitPitch = 35;
 	public float RotationPowerRoll = 15.0f;
 	public float RotationPowerYaw = 15.0f;
 	public float RollDampingFactor = 1.0f;
@@ -79,21 +86,50 @@ public class FlightController : MonoBehaviour
 			CurrentFlightState = FlightState.Normal;
 		}
 
+		//
+		// air resistance make rotating model
+		//
+		{
+			Model.transform.Rotate( new Vector3(Input.GetAxis("Horizontal") * AirResistanceRoll, 
+			                                    0, 
+			                                    -Input.GetAxis("Horizontal") * AirResistancePitch) );
+			Vector3 euler = Model.transform.localEulerAngles;
+			if( euler.x < 180 ) {
+				euler.x = Mathf.Min( euler.x, ModelRotationLimitRoll );
+			} else {
+				euler.x = Mathf.Min( euler.x, 360 - ModelRotationLimitRoll );
+			}
+			if( euler.y < 180 ) {
+				euler.y = Mathf.Min( euler.y, ModelRotationLimitYaw );
+			} else {
+				euler.y = Mathf.Min( euler.y, 360 - ModelRotationLimitYaw );
+			}
+			if( euler.z < 180 ) {
+				euler.z = Mathf.Min( euler.z, ModelRotationLimitPitch );
+			} else {
+				euler.z = Mathf.Min( euler.z, 360 - ModelRotationLimitPitch );
+			}
+
+			Model.transform.localEulerAngles = euler;
+		}
+
 
 		//
 		// rotating
 		//
-		Vector3 dir = new Vector3(-Input.GetAxis("Vertical") * RotationPowerRoll, Input.GetAxis("Horizontal") * RotationPowerYaw);
-		this.transform.Rotate(dir * Time.deltaTime);
-
-		Vector3 euler = this.transform.eulerAngles;
-		float rollDamping;
-		if( euler.z > 180 ) {
-			rollDamping = 360 - euler.z;
-		} else {
-			rollDamping = -euler.z;
+		{
+			Vector3 dir = new Vector3(-Input.GetAxis("Vertical") * RotationPowerRoll, Input.GetAxis("Horizontal") * RotationPowerYaw);
+			this.transform.Rotate(dir * Time.deltaTime);
+			
+			Vector3 euler = this.transform.eulerAngles;
+			float rollDamping;
+			if( euler.z > 180 ) {
+				rollDamping = 360 - euler.z;
+			} else {
+				rollDamping = -euler.z;
+			}
+			this.transform.Rotate(0, 0, rollDamping * Time.deltaTime * RollDampingFactor);
 		}
-		this.transform.Rotate(0, 0, rollDamping * Time.deltaTime * RollDampingFactor);
 
 
 		//
