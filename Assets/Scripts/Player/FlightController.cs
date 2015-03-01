@@ -91,23 +91,23 @@ public class FlightController : MonoBehaviour
 		//
 		{
 			Model.transform.Rotate( new Vector3(Input.GetAxis("Horizontal") * AirResistanceRoll, 
-			                                    0, 
+			                                    Input.GetAxis("Horizontal") * AirResistanceYaw, 
 			                                    -Input.GetAxis("Horizontal") * AirResistancePitch) );
 			Vector3 euler = Model.transform.localEulerAngles;
 			if( euler.x < 180 ) {
 				euler.x = Mathf.Min( euler.x, ModelRotationLimitRoll );
 			} else {
-				euler.x = Mathf.Min( euler.x, 360 - ModelRotationLimitRoll );
+				euler.x = Mathf.Max( euler.x, 360 - ModelRotationLimitRoll );
 			}
 			if( euler.y < 180 ) {
-				euler.y = Mathf.Min( euler.y, ModelRotationLimitYaw );
+				euler.y = Mathf.Min( euler.y, ModelRotationLimitYaw * 2.0f );
 			} else {
-				euler.y = Mathf.Min( euler.y, 360 - ModelRotationLimitYaw );
+				euler.y = Mathf.Max( euler.y, 360 - ModelRotationLimitYaw );
 			}
 			if( euler.z < 180 ) {
 				euler.z = Mathf.Min( euler.z, ModelRotationLimitPitch );
 			} else {
-				euler.z = Mathf.Min( euler.z, 360 - ModelRotationLimitPitch );
+				euler.z = Mathf.Max( euler.z, 360 - ModelRotationLimitPitch );
 			}
 
 			Model.transform.localEulerAngles = euler;
