@@ -873,7 +873,7 @@ MonoBehaviour:
   PrefabMissile: {fileID: 100004, guid: b3bf811bb2b0948cf907962eb4c4aa93, type: 2}
   SpriteWeaponBullet: {fileID: 0}
   SpriteWeaponMissile: {fileID: 0}
-  BulletSpeed: 15
+  BulletSpeed: 20
   MissileSpeed: 10
 --- !u!114 &11400002
 MonoBehaviour:
