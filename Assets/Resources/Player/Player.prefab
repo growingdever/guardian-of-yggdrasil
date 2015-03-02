@@ -19,7 +19,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &100002
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -328,8 +328,8 @@ Transform:
   m_LocalPosition: {x: -2.87535405, y: -.0250854492, z: 2.29019833}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 400006}
-  m_RootOrder: 1
+  m_Father: {fileID: 400034}
+  m_RootOrder: 5
 --- !u!4 &400004
 Transform:
   m_ObjectHideFlags: 1
@@ -353,7 +353,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400008}
-  - {fileID: 400002}
   - {fileID: 400034}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -537,8 +536,9 @@ Transform:
   - {fileID: 400000}
   - {fileID: 400032}
   - {fileID: 400030}
+  - {fileID: 400002}
   m_Father: {fileID: 400006}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!20 &2000000
 Camera:
   m_ObjectHideFlags: 1
@@ -873,8 +873,8 @@ MonoBehaviour:
   PrefabMissile: {fileID: 100004, guid: b3bf811bb2b0948cf907962eb4c4aa93, type: 2}
   SpriteWeaponBullet: {fileID: 0}
   SpriteWeaponMissile: {fileID: 0}
-  BulletSpeed: 6
-  MissileSpeed: 4
+  BulletSpeed: 15
+  MissileSpeed: 10
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
