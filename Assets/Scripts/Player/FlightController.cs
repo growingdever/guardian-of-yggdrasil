@@ -118,6 +118,10 @@ public class FlightController : MonoBehaviour
 			Model.transform.Rotate(rollDampingX * Time.deltaTime * RollDampingFactor, 
 			                       rollDampingY * Time.deltaTime * RollDampingFactor,
 			                       rollDampingZ * Time.deltaTime * RollDampingFactor);
+
+			// moving model
+			Model.transform.localPosition += new Vector3(-Input.GetAxis("Horizontal"), 0, 0) * Time.deltaTime * 10.0f;
+			Model.transform.localPosition = Vector3.Lerp( Model.transform.localPosition, new Vector3(), Time.deltaTime * 2.0f );
 		}
 
 
