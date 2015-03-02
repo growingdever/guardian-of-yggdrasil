@@ -9,9 +9,9 @@ public class FlightController : MonoBehaviour
 		Decelerating,
 	}
 
-	public readonly int[] UPGRADE_TABLE_SPEED_NORMAL = { 180, 200, 220, 230, 240 };
-	public readonly int[] UPGRADE_TABLE_SPEED_BOOSTER = { 200, 220, 240, 250, 260 };
-	public readonly int[] UPGRADE_TABLE_SPEED_DECELERATING = { 160, 180, 200, 210, 220 };
+	public readonly int[] UPGRADE_TABLE_SPEED_NORMAL = { 300, 320, 340, 360, 370 };
+	public readonly int[] UPGRADE_TABLE_SPEED_BOOSTER = { 320, 340, 360, 380, 390 };
+	public readonly int[] UPGRADE_TABLE_SPEED_DECELERATING = { 280, 300, 320, 340, 350 };
 
 	public GameObject Model;
 	public float AirResistanceRoll = 1.0f;
