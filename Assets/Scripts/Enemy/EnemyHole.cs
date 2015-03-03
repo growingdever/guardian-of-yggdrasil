@@ -24,7 +24,8 @@ public class EnemyHole : MonoBehaviour {
 
 	IEnumerator CreateEnemy() {
 		while(true) {
-			GameObject go = Instantiate(PrefabEnemies[Random.Range(0, Mathf.Max(CurrentLevel, PrefabEnemies.Length - 1))], 
+			GameObject selected = PrefabEnemies[Random.Range(0, Mathf.Max(CurrentLevel, PrefabEnemies.Length - 1))];
+			GameObject go = Instantiate(selected, 
 			    SpawnPoint.position, 
 			    Quaternion.identity) as GameObject;
 			go.transform.parent = EnemyContainer.transform;
@@ -67,10 +68,6 @@ public class EnemyHole : MonoBehaviour {
 
 		Enemy enemy = go.GetComponent<Enemy> ();
 		enemy.CurrentState = Enemy.State.Active;
-
-		EnemyMovingLinear comp = go.GetComponent<EnemyMovingLinear>();
-		comp.TargetPoint = TargetPoint;
-		comp.enabled = true;
 	}
 
 }
