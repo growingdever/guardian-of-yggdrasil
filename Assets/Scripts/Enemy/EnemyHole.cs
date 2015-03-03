@@ -65,6 +65,9 @@ public class EnemyHole : MonoBehaviour {
 		_enemyFollowingUIManager.CreateUI (go);
 		go.GetComponent<Enemy>().OnDeadCallbacks += _enemyFollowingUIManager.RemoveUI;
 
+		Enemy enemy = go.GetComponent<Enemy> ();
+		enemy.CurrentState = Enemy.State.Active;
+
 		EnemyMovingLinear comp = go.GetComponent<EnemyMovingLinear>();
 		comp.TargetPoint = TargetPoint;
 		comp.enabled = true;

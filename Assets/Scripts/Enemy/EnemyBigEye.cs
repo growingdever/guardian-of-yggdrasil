@@ -14,13 +14,11 @@ public class EnemyBigEye : Enemy {
 	public float AttackRange;
 	public float AttackSpeed;
 
-	EnemyMoving _moving;
 	bool _attackable;
 	float _attackDelay;
 
 
 	void Start() {
-		_moving = this.GetComponent<EnemyMoving> ();
 		MaxHP = HP = Util.UpdateValueByTable (ROUND_TABLE_MAX_HP, RoundManager.CurrentRound);
 	}
 
@@ -93,6 +91,19 @@ public class EnemyBigEye : Enemy {
 	{
 		player.HP -= DamageCollidedPlayer;
 		this.HP = 0;
+	}
+
+	protected override void OnStateChanged (State state)
+	{
+		if (state == State.Active) {
+			Yggdrasil yggdrasil = GameObject.Find ("Yggdrasil").GetComponent<Yggdrasil> ();
+			EnemyMovingLinear linearMoving = _moving as EnemyMovingLinear;
+			linearMoving.enabled = true;
+			linearMoving.TargetPoint = yggdrasil.transform;
+		} else if( state == State.Sleep ) {
+			EnemyMovingLinear linearMoving = _moving as EnemyMovingLinear;
+			linearMoving.enabled = false;
+		}
 	}
 
 }

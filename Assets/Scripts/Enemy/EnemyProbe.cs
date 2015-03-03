@@ -34,4 +34,17 @@ public class EnemyProbe : Enemy {
 		this.HP = 0;
 	}
 
+	protected override void OnStateChanged (State state)
+	{
+		if (state == State.Active) {
+			Yggdrasil yggdrasil = GameObject.Find ("Yggdrasil").GetComponent<Yggdrasil> ();
+			EnemyMovingLinear linearMoving = _moving as EnemyMovingLinear;
+			linearMoving.enabled = true;
+			linearMoving.TargetPoint = yggdrasil.transform;
+		} else if (state == State.Sleep) {
+			EnemyMovingLinear linearMoving = _moving as EnemyMovingLinear;
+			linearMoving.enabled = false;
+		}
+	}
+
 }

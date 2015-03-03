@@ -10,7 +10,24 @@ public class EventEnemyLifeCycle : EventArgs
 
 public abstract class Enemy : MonoBehaviour {
 
+	public enum State {
+		Sleep,
+		Active,
+	};
+
 	public GameObject PrefabExplosionEffect;
+
+
+	Enemy.State _currentState;
+	public State CurrentState {
+		get {
+			return _currentState;
+		}
+		set {
+			_currentState = value;
+			OnStateChanged(_currentState);
+		}
+	}
 
 	public int MaxHP {
 		get;
@@ -48,16 +65,21 @@ public abstract class Enemy : MonoBehaviour {
 	
 	public event EventHandler<EventEnemyLifeCycle> OnDeadCallbacks;
 	protected RoundManager RoundManager;
+	protected EnemyMoving _moving;
 
 
 	virtual protected void Awake() {
 		RoundManager = GameObject.Find ("RoundManager").GetComponent<RoundManager> ();
 		RoundManager.OnRoundChangeCallbacks += this.OnRoundChanged;
 
+		_moving = this.GetComponent<EnemyMoving> ();
+
 		// update status by round on awake
 		OnRoundChanged( this, new EventRoundChange {round = RoundManager.CurrentRound} );
+
+		CurrentState = State.Sleep;
 	}
-	
+
 	protected void OnDead() {
 		var e = new EventEnemyLifeCycle {gameObject = this.gameObject};
 		if (OnDeadCallbacks != null) {
@@ -87,5 +109,7 @@ public abstract class Enemy : MonoBehaviour {
 	abstract protected void OnCollidedWithPlayer (Player player);
 
 	abstract protected void OnRoundChanged (object sender, EventRoundChange e);
+
+	abstract protected void OnStateChanged (Enemy.State state);
 
 }
